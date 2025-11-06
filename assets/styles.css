@@ -1,0 +1,38 @@
+:root {
+  --background-color: #ffffff;
+  --primary-color: #000000;
+  --secondary-color: #c3b89a;
+}
+
+@media screen and (max-width: 430px) {
+  body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-family: IBM Plex Sans, sans-serif;
+    margin: 0;
+    height: 3000px;
+  }
+
+  .navbar {
+    background-color: rgba(255, 255, 255, 0);
+    width: -webkit-fill-available;
+    height: 3rem;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar-scrolled {
+    background-color: rgb(124, 124, 124);
+  }
+
+  nav svg {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+}
