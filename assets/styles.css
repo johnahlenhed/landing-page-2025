@@ -4,15 +4,60 @@
   --secondary-color: #c3b89a;
 }
 
-@media screen and (max-width: 430px) {
-  body {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    font-family: IBM Plex Sans, sans-serif;
-    margin: 0;
-    height: 3000px;
-  }
+/* We want these to apply to all screen sizes I think */
+body {
+  margin: 0;
+  font-family: IBM Plex Sans, sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+/* Font properties */
+h2{
+  font-size: 2.2em;
+}
 
+h3{
+  font-size: 1.5em;
+}
+
+.products h2,
+.product-card h3,
+.products a {
+  text-transform: uppercase;
+  margin: 0.5em 1em;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+.products h2,
+.products a{
+  text-align: center;
+}
+
+.products a{
+  text-decoration: none;
+  margin: 0 auto;
+  font-size: 1.2em;
+  color: var(--primary-color)
+}
+/* Font properties end */
+
+.products,
+.product-card img {
+  width: 100%;
+}
+
+.product-card{
+  margin-bottom: 2em;
+}
+
+.cta-collection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+@media screen and (max-width: 430px) {
   .navbar {
     background-color: rgba(255, 255, 255, 0);
     width: -webkit-fill-available;
