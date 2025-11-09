@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kinforma</title>
     <link rel="stylesheet" href="/assets/styles.css">
 </head>
@@ -44,13 +44,15 @@
 
     </div>
 
+    <section class="hero-overlay"></section>
+
     <script>
         // Header scroll effect
         console.log("Header loaded");
         var nav = document.querySelector('.navbar');
 
         function transparentNav() {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 140) {
                 nav.classList.add('navbar-scrolled');
             } else {
                 nav.classList.remove('navbar-scrolled');
