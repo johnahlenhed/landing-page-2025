@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinforma</title>
     <link rel="stylesheet" href="/assets/styles.css">
+    <script type="module" src="../assets/model.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.153.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.153.0/examples/jsm/"
+        }
+      }
+    </script>
 </head>
 
 <body>
