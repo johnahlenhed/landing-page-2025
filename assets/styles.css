@@ -4,6 +4,8 @@
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
+
+  --form-input-color: rgba(131, 131, 131, 0.7);
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -184,6 +186,57 @@ nav svg {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   padding: 1rem;
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.cta-wrapper h4 {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+.cta-form input {
+  text-align: center;
+  font: inherit;
+  -webkit-text-fill-color: var(--form-input-color) !important;
+  text-decoration: none;
+  width: 78%;
+  height: 3.5em;
+  border: 1px solid var(--primary-color);
+  box-shadow: inset 0 0 2.5px 0.1px var(--primary-color);
+  border-radius: 2px;
+  max-width: 400px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font: inherit;
+  font-size: larger;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  height: 3.5em;
+  width: 79%;
+  max-width: 400px;
 }
 
 

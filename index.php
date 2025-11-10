@@ -13,6 +13,6 @@
 
 <?php require __DIR__ . '/includes/about.php'; ?>
 
-
+<?php require __DIR__ . '/includes/CTA.php'; ?>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
