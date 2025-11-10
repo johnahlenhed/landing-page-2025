@@ -61,115 +61,133 @@ h3 {
   padding: 1em;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-    font-size: small;
-    width: -webkit-fill-available;
-    height: 2rem;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    transition: background-color 0.3s ease;
-  }
+.navbar {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-size: small;
+  width: -webkit-fill-available;
+  height: 2rem;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  transition: background-color 0.3s ease;
+}
 
-  .navbar-scrolled {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-  }
+.navbar-scrolled {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
 
-  nav svg {
-    height: 1.2rem;
-    width: 1.2rem;
-  }
+nav svg {
+  height: 1.2rem;
+  width: 1.2rem;
+}
 
-  .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-  }
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
 
-  .video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .hero-overlay {
-    position: relative;
-    height: 25vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    z-index: 1;
-  }
+.hero-overlay {
+  position: relative;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
 
-  .about-section {
-    padding: 1rem;
-  }
+.about-section {
+  padding: 1rem;
+}
 
-  .about-section h2 {
-    margin-bottom: 0.2rem;
-  }
+.about-section h2 {
+  margin-bottom: 0.2rem;
+}
 
-  .about-section h4 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
+.about-section h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
-  .about-carousel {
-    width: 100%;
-    padding: 1rem 0 0.8rem;
-    overflow-x: auto;
-    display: flex;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-  }
+.about-carousel {
+  width: 100%;
+  padding: 1rem 0 0.8rem;
+  overflow-x: auto;
+  display: flex;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
 
-  .about-carousel::-webkit-scrollbar {
-    display: none; /* hide scrollbar (Chrome/Safari) */
-  }
+.about-carousel::-webkit-scrollbar {
+  display: none; /* hide scrollbar (Chrome/Safari) */
+}
 
-  .about-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: nowrap;
-    width: max-content;
-  }
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: max-content;
+}
 
-  .about-list li img {
-    height: auto;
-    width: 250px;
-    object-fit: contain;
-  }
+.about-list li img {
+  height: auto;
+  width: 250px;
+  object-fit: contain;
+}
 
-  .navigation-icons {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-  }
+.navigation-icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
 
-  .navigation-icons svg {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0 1rem;
-    cursor: pointer;
-  }
+.navigation-icons svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.about-speaker-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-speaker-wrapper img {
+  width: 75%;
+  height: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+
+/* Desktop styles */
+
+@media screen and (min-width: 768px) {
 }

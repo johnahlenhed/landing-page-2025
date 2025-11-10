@@ -40,7 +40,13 @@
 
     </div>
 
-    <p>Tillverkad i Sverige av återvunnet material bidrar våra produkter till en mer regenerativ framtid. Varje kollektion släpps i begränsad upplaga – för hållbarhet, kreativitet och personlig stil.</p>
+    <p>Tillverkad i Sverige av återvunnet material bidrar våra produkter till en mer regenerativ framtid.
+        Varje kollektion släpps i begränsad upplaga – för hållbarhet, kreativitet och personlig stil.</p>
+
+
+    <div class="about-speaker-wrapper">
+        <img src="/assets/images/kinforma-speaker.svg" alt="Kinforma speaker">
+    </div>
 
 
     <script>
