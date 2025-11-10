@@ -10,6 +10,6 @@ require("content.php");
         </article>
     <?php endforeach; ?>
     <div class="cta-collection">
-        <a href="#">Urforska kollektionen ></a>
+        <a href="#">Utforska kollektionen ></a>
     </div>
 </section>
