@@ -1,38 +1,285 @@
 :root {
+  --safe-bottom: env(safe-area-inset-bottom);
+
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
+
+  --form-input-color: rgba(131, 131, 131, 0.7);
 }
 
-@media screen and (max-width: 430px) {
-  body {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    font-family: IBM Plex Sans, sans-serif;
-    margin: 0;
-    height: 3000px;
-  }
+/* We want these to apply to all screen sizes I think */
+body {
+  padding-bottom: var(--safe-bottom);
 
-  .navbar {
-    background-color: rgba(255, 255, 255, 0);
-    width: -webkit-fill-available;
-    height: 3rem;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    transition: background-color 0.3s ease;
-  }
+  margin: 0;
+  font-family: IBM Plex Sans, sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+/* Font properties */
+h2 {
+  font-size: 2.2em;
+}
 
-  .navbar-scrolled {
-    background-color: rgb(124, 124, 124);
-  }
+h3 {
+  font-size: 1.5em;
+}
 
-  nav svg {
-    height: 1.2rem;
-    width: 1.2rem;
-  }
+.products h2,
+.product-card h3,
+.products a {
+  text-transform: uppercase;
+  margin: 0.5em 1em;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+.products h2,
+.products a {
+  text-align: center;
+}
+
+.products a {
+  text-decoration: none;
+  margin: 0 auto;
+  font-size: 1.2em;
+  color: var(--primary-color);
+}
+/* Font properties end */
+
+.products,
+.product-card img {
+  width: 100%;
+}
+
+.product-card {
+  margin-bottom: 2em;
+}
+
+.cta-collection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+#model-container{
+  width: 100%;
+  height: 300px;
+  margin: 0;
+}
+.model-color{
+  background-color: #a89c7b;
+  aspect-ratio: 1 / 1;
+  width: 3em;
+  border: none;
+  border-radius: 0%;
+  padding: 0;
+}
+.blue{
+  background-color: rgb(133, 185, 185);
+}
+.red{
+  background-color: rgb(175, 87, 87);
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-size: small;
+  width: -webkit-fill-available;
+  height: 2rem;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+nav svg {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: relative;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.about-section {
+  padding: 1rem;
+}
+
+.about-section h2 {
+  margin-bottom: 0.2rem;
+}
+
+.about-section h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.about-carousel {
+  width: 100%;
+  padding: 1rem 0 0.8rem;
+  overflow-x: auto;
+  display: flex;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+.about-carousel::-webkit-scrollbar {
+  display: none; /* hide scrollbar (Chrome/Safari) */
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+.about-list li img {
+  height: auto;
+  width: 250px;
+  object-fit: contain;
+}
+
+.navigation-icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navigation-icons svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.about-speaker-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-speaker-wrapper img {
+  width: 75%;
+  height: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.cta-wrapper h4 {
+  text-decoration: none;
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+.cta-form input {
+  text-align: center;
+  font: inherit;
+  -webkit-text-fill-color: var(--form-input-color) !important;
+  text-decoration: none;
+  width: 78%;
+  height: 3.5em;
+  border: 1px solid var(--primary-color);
+  box-shadow: inset 0 0 2.5px 0.1px var(--primary-color);
+  border-radius: 2px;
+  max-width: 400px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font: inherit;
+  font-size: larger;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  height: 3.5em;
+  width: 79%;
+  max-width: 400px;
+}
+
+footer {
+  height: 20vh;
+  font-size: larger;
+  margin-top: 4em;
+}
+
+footer p {
+  text-align: center;
+  font-size: smaller;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  height: 6vh;
+}
+
+
+/* Desktop styles */
+
+@media screen and (min-width: 768px) {
 }
