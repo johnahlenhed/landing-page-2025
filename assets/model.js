@@ -1,56 +1,81 @@
-import * as THREE from "three";
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.181.0/build/three.module.js';
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FXAAPass } from "three/addons/postprocessing/FXAAPass.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js"
 
 // ---- Container for the 3d model
 const container = document.getElementById("model-container");
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({
+  powerPreference: "high-performance",
+	antialias: true,
+});
+
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setClearColor(0xd8d8d8);
 renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
+const fxaapass = new FXAAPass();
+const composer = new EffectComposer(renderer);
+composer.addPass(fxaapass);
+
 // ---- Scene and camera options
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
+  25,
   container.clientWidth / container.clientHeight,
   1,
-  1000
+  500
 );
-camera.position.set(0, 3, 12);
+camera.position.set(0, 2, 30);
 camera.lookAt(0, 0, 0);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 9;
-controls.maxDistance = 15;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 1.5;
+controls.minDistance = 3;
+controls.maxDistance = 45;
+controls.minPolarAngle = 0;
+controls.maxPolarAngle = 2;
 controls.autoRotate = false;
 controls.target.set(0, 1, 0);
 controls.update();
 
-// ---- Lights for the scene
-scene.add(new THREE.HemisphereLight(0xffffff, 0x333333, 0.2));
-scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+// // ---- Lighting settings
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+renderer.physicallyCorrectLights = true;
+// --- Studio lighting
+const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambient);
+// Key light (main)
+const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
+keyLight.position.set(5, 8, 5);
+keyLight.castShadow = true;
+scene.add(keyLight);
 
-const key = new THREE.DirectionalLight(0xffffff, 0.2);
-key.position.set(5, 5, 5);
-scene.add(key);
+// Fill light (softens shadows)
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+fillLight.position.set(-5, 4, 3);
+scene.add(fillLight);
 
-const rim = new THREE.DirectionalLight(0xffffff, 0.2);
-rim.position.set(-5, 3, -5);
-scene.add(rim);
+// Rim light (adds pop on edges)
+const rimLight = new THREE.DirectionalLight(0xffffff, 0.9);
+rimLight.position.set(-3, 5, -5);
+scene.add(rimLight);
 
 const textureLoader = new THREE.TextureLoader();
 
 // ---- Variables for different parts of the model
 let seatMaterial, ryggMaterial, benMaterial;
 
+applyTexture("rygg", "rygg_Base_color.jpg");
+applyTexture("seat", "seat_Base_color.jpg");
+applyTexture("ben", "ben_Base_color.jpg");
 const mtlLoader = new MTLLoader();
 mtlLoader.setPath("../assets/3d-model/");
 mtlLoader.load("stol_preview_texturtest1.mtl", (materials) => {
@@ -60,17 +85,41 @@ mtlLoader.load("stol_preview_texturtest1.mtl", (materials) => {
   // objLoader.setMaterials(materials);
   objLoader.setPath("../assets/3d-model/");
   objLoader.load("stol_preview_texturtest1.obj", (object) => {
-    object.position.set(0, -4, 0);
+    object.position.set(0, -6, 0);
     object.rotation.y = Math.PI / -1.5;
 
-    object.traverse((child) => {
-      if (child.isMesh && child.material) {
-        const name = child.name.toLowerCase();
-        if (name.includes("seat")) seatMaterial = child.material;
-        if (name.includes("rygg")) ryggMaterial = child.material;
-        if (name.includes("ben")) benMaterial = child.material;
+ object.traverse((child) => {
+    if (child.isMesh) {
+      const name = child.name.toLowerCase();
+
+      // Function to make a PBR material from base, normal, roughness, etc.
+      const makeMaterial = (part) => {
+        return new THREE.MeshStandardMaterial({
+          map: textureLoader.load(`../assets/3d-model/texturer_test1/${part}_Base_color.jpg`),
+          normalMap: textureLoader.load(`../assets/3d-model/texturer_test1/${part}_Normal.jpg`),
+          roughnessMap: textureLoader.load(`../assets/3d-model/texturer_test1/${part}_Roughness.jpg`),
+          metalnessMap: textureLoader.load(`../assets/3d-model/texturer_test1/${part}_Metallic.jpg`),
+          bumpMap: textureLoader.load(`../assets/3d-model/texturer_test1/${part}_Height.jpg`),
+          roughness: 1.0,
+          metalness: 0.8,
+        });
+      };
+
+      // Assign materials based on part name
+      if (name.includes("seat")) {
+        seatMaterial = makeMaterial("seat");
+        child.material = seatMaterial;
       }
-    });
+      if (name.includes("rygg")) {
+        ryggMaterial = makeMaterial("rygg");
+        child.material = ryggMaterial;
+      }
+      if (name.includes("ben")) {
+        benMaterial = makeMaterial("ben");
+        child.material = benMaterial;
+      }
+    }
+  });
 
     scene.add(object);
     swapTexture();
