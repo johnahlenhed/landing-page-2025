@@ -68,18 +68,11 @@ h3 {
   margin: 0;
 }
 .model-color{
-  background-color: #a89c7b;
   aspect-ratio: 1 / 1;
   width: 3em;
   border: none;
   border-radius: 0%;
   padding: 0;
-}
-.blue{
-  background-color: rgb(133, 185, 185);
-}
-.red{
-  background-color: rgb(175, 87, 87);
 }
 
 .navbar {
