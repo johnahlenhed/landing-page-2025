@@ -7,6 +7,7 @@
     <title>Kinforma</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <script type="module" src="../assets/model.js"></script>
+        <script type="module" src="../assets/main.js"></script>
     <script type="importmap">
         {
         "imports": {
