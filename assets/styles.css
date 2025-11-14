@@ -248,24 +248,9 @@ nav svg {
   overflow: hidden;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 49%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 56.25vw; /* 16:9 aspect ratio */
-  min-height: 100vh;
-  min-width: 177.78vh; /* 16:9 aspect ratio */
-  object-fit: cover;
-  z-index: -1;
-  border: none;
-  pointer-events: none;
-}
-
 .video-container video {
   position: absolute;
-  top: 50%;
+  top: 407px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
