@@ -1,4 +1,4 @@
-<section>
+<section class="personlig-design">
   <h2>Personlig Design</h2>
   <p>Skapa din egen design av vår fåtölj – personlig, unik och helt i din stil.</p>
   <figure id="model-container"></figure>
