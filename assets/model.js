@@ -20,8 +20,6 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 renderer.physicallyCorrectLights = true;
 container.appendChild(renderer.domElement);
-// ---- Tells agent to prevent scrolling.
-renderer.preventDefault();
 
 // ---- Some recommended anti-aliasing thing
 const composer = new EffectComposer(renderer);
