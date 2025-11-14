@@ -422,6 +422,7 @@ footer div {
     background-color: var(--navbar-top-scroll-color);
     position: sticky;
     top: 0;
+    z-index: 1000;
     display: grid;
     grid-template-columns: 5fr;
     grid-template-rows: 5fr 1fr;
