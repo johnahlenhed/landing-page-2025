@@ -1,6 +1,8 @@
-<section class="personlig-design">
-  <h2>Personlig Design</h2>
-  <p>Skapa din egen design av vår fåtölj – personlig, unik och helt i din stil.</p>
+<section class="product-customizer">
+  <div class="customizer-header">
+    <h2>Personlig Design</h2>
+    <p>Skapa din egen design av vår fåtölj – personlig, unik och helt i din stil.</p>
+  </div>
   <figure id="model-container"></figure>
   <div id="color-options">
     <button class="model-color" data-color="#000000"></button>
