@@ -17,7 +17,16 @@ body {
   color: var(--primary-color);
 }
 /* Properties for products */
-.product-customizer,
+.customizer-header{
+  padding: 0 1em;
+}
+.customizer-header h2,
+.products h2{
+  font-weight: 600;
+  font-size: 1.7em;
+  letter-spacing: -0.01em;
+}
+.customizer-header,
 .product h2{
   font-family: IBM Plex Sans, serif;
 }
@@ -25,12 +34,9 @@ body {
   color: var(--accent-color);
   text-transform: uppercase;
   margin: 0.5em 1em;
-  letter-spacing: -0.02em;
   text-align: center;
   padding: 1.3em;
-  font-size: 1.7em;
 
-  font-weight: 600;
 }
 .product-slider{
   position: relative;
@@ -66,6 +72,7 @@ body {
   padding: 0.5em 1em;
   cursor: pointer;
   background-color: transparent;
+  z-index: 20;
 }
 .arrow-left {
   left: 1em;
