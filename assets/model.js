@@ -57,12 +57,14 @@ const rimLight = new THREE.DirectionalLight(0xffffff, 0.9);
 rimLight.position.set(-3, 5, -5);
 scene.add(rimLight);
 
-
 // ---- Material references
 const textureLoader = new THREE.TextureLoader();
 
 const createMaterial = (part) =>
   new THREE.MeshStandardMaterial({
+    map: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Base_color.jpg`
+    ),
     normalMap: textureLoader.load(
       `../assets/3d-model/texturer_test1/${part}_Normal.jpg`
     ),
@@ -85,7 +87,6 @@ const materials = {
   rygg: null,
   ben: null,
 };
-
 
 // ---- Loading model with textures
 const objLoader = new OBJLoader();
