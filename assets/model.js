@@ -20,6 +20,8 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 renderer.physicallyCorrectLights = true;
 container.appendChild(renderer.domElement);
+// ---- Tells agent to prevent scrolling.
+renderer.preventDefault();
 
 // ---- Some recommended anti-aliasing thing
 const composer = new EffectComposer(renderer);
@@ -131,12 +133,17 @@ function applyColor(parts, hexColor) {
   });
 }
 
-// ---- Events for color buttons
+// ---- Applies color to model depending on the value
 document.querySelectorAll("#color-options button").forEach((btn) => {
   btn.addEventListener("click", () => {
     const hex = btn.getAttribute("data-color");
     applyColor(["seat", "rygg"], hex);
   });
+});
+// ---- Changes the color of the button to the same color as given value
+document.querySelectorAll(".model-color").forEach((btn) => {
+  const color = btn.getAttribute("data-color");
+  btn.style.backgroundColor = color;
 });
 
 // -------------------------------------------------------------
