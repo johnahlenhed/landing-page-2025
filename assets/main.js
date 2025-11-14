@@ -1,3 +1,4 @@
+// ---- Works by adding an active class and changing the index of the images
 document.addEventListener('DOMContentLoaded', () => {
   const sliders = document.querySelectorAll('.product-slider');
 
