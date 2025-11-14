@@ -36,6 +36,29 @@
         </div>
     </nav>
 
+    <nav class="navbar-desktop">
+
+        <div class="navbar-items-desktop">
+            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
+
+            <img src="/assets/images/kinforma-logo-light.png" alt="Kinforma logo">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+
+        </div>
+
+        <div class="nav-links-desktop">
+            <ul>
+                <li><a>Kollektioner</a></li>
+                <li><a>Personlig design</a></li>
+                <li><a>Om oss</a></li>
+                <li><a>Kontakta oss</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <menu class="mobile-menu">
 
         <div class="mobile-menu-top">
@@ -72,7 +95,7 @@
             src="https://www.youtube.com/embed/tZFIhg_w8l8?autoplay=1&mute=1&controls=0&loop=1&playlist=tZFIhg_w8l8&modestbranding=1&showinfo=0"
             title="YouTube video player"
             frameborder="0"
-            allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; encrypted-media;"
             allowfullscreen>
         </iframe>
 
@@ -92,12 +115,15 @@
         // Header scroll effect
         console.log("Header loaded");
         var nav = document.querySelector('.navbar');
+        var navDesktop = document.querySelector('.navbar-desktop');
 
         function transparentNav() {
             if (window.scrollY > 140) {
                 nav.classList.add('navbar-scrolled');
+                navDesktop.classList.add('navbar-desktop-scrolled');
             } else {
                 nav.classList.remove('navbar-scrolled');
+                navDesktop.classList.remove('navbar-desktop-scrolled');
             }
         }
         window.addEventListener('scroll', transparentNav);
