@@ -2,8 +2,7 @@
 require("content.php");
 ?>
 <section class="products">
-    <h2>Upptäck</h2>
-    <h2><em>FW25 Marstrand</em></h2>
+    <h2>FW25 <em>Marstrand</em></h2>
     <?php foreach ($products as $product) : ?>
         <article class="product-slider">
                 <img class="product-image active" src="<?= $product['img-path-active'] ?>" alt="<?= $product['img-alt'] ?>">
