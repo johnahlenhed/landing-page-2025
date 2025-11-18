@@ -7,7 +7,7 @@
     <title>Kinforma</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <script type="module" src="../assets/model.js"></script>
-        <script type="module" src="../assets/main.js"></script>
+    <script type="module" src="../assets/main.js"></script>
     <script type="importmap">
         {
         "imports": {
@@ -90,23 +90,10 @@
     </menu>
 
     <div class="video-container">
-        <iframe
-            width="430"
-            height="240"
-            src="https://www.youtube.com/embed/tZFIhg_w8l8?autoplay=1&mute=1&controls=0&loop=1&playlist=tZFIhg_w8l8&modestbranding=1&showinfo=0"
-            title="YouTube video player"
-            frameborder="0"
-            allow="autoplay; encrypted-media;"
-            allowfullscreen>
-        </iframe>
 
-        <!-- Future video implementation 
-        
-        <video autoplay muted loop playsinline width="560" height="315">
-        <source src="assets/myvideo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <video autoplay muted loop playsinline>
+            <source src="/assets/video/hero_animation1.mkv" type="video/mp4">
         </video>
-        -->
 
     </div>
 
