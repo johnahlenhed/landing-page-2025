@@ -129,8 +129,9 @@ body {
   transition: background-color 0.8s ease;
 }
 
-.navbar h1 {
-  margin: 0;
+.navbar img {
+  height: 3.5rem;
+  width: auto;
 }
 
 .navbar-scrolled {
@@ -138,9 +139,13 @@ body {
   color: var(--primary-color);
 }
 
+.navbar-scrolled img:nth-child(2) {
+  content: url(/assets/images/Kinforma_Logo_K.svg);
+}
+
 nav svg {
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .mobile-menu {
@@ -414,6 +419,14 @@ footer div {
 /* Desktop styles */
 
 @media screen and (min-width: 768px) {
+
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+  }
+
   .navbar {
     display: none;
   }
@@ -422,24 +435,21 @@ footer div {
     background-color: var(--navbar-top-scroll-color);
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
-    display: grid;
-    grid-template-columns: 5fr;
-    grid-template-rows: 5fr 1fr;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 1rem 2rem;
-    width: -webkit-fill-available;
-    padding: 8px 16px 16px 16px;
+    width: 100%;
     transition: background-color 0.8s ease;
   }
 
   .navbar-items-desktop {
     display: flex;
-    gap: 15rem;
+    gap: 5rem;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
+    width: min(100%, 1200px);
     height: auto;
     padding-bottom: 8px;
   }
@@ -447,6 +457,7 @@ footer div {
   .navbar-items-desktop img:nth-child(1) {
     height: 2rem;
     width: 2rem;
+    padding-top: 10px;
   }
 
   .navbar-items-desktop img:nth-child(2) {
@@ -455,24 +466,23 @@ footer div {
   }
 
   .navbar-items-desktop svg {
+    color: var(--menu-text-color);
     height: 2rem;
     width: 2rem;
-    color: var(--menu-text-color);
+    padding-top: 10px;
   }
 
   .nav-links-desktop {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: auto;
   }
 
   .nav-links-desktop ul {
     display: flex;
-    gap: 2rem;
-    padding: 1px 0 0 0;
-    margin: 0;
     list-style: none;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
   }
 
   .nav-links-desktop li {
@@ -488,17 +498,14 @@ footer div {
   .navbar-desktop-scrolled img:nth-child(1) {
     height: 2rem;
     width: 2rem;
+    padding-top: 10px;
   }
 
   .navbar-desktop-scrolled img:nth-child(2) {
-    height: 4rem;
-    width: auto;
-    content: url(/assets/images/kinforma-logo-dark.png);
+    content: url(/assets/images/Kinforma_Logo_FULL.svg);
   }
 
   .navbar-desktop-scrolled svg {
-    height: 2rem;
-    width: 2rem;
     color: var(--primary-color);
   }
 
