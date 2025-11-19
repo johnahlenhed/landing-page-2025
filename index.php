@@ -6,6 +6,8 @@
 
 <?php require __DIR__ . '/includes/products.php'; ?>
 
+<?php require __DIR__ . '/includes/speaker-3d.php'; ?>
+
 <?php require __DIR__ . '/includes/3d-model.php'; ?>
 
 <?php require __DIR__ . '/includes/about.php'; ?>

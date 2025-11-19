@@ -269,6 +269,24 @@ nav svg {
   z-index: 1;
 }
 
+.speaker-section {
+  background-color: var(--background-color);
+  width: 100%;
+}
+
+#speaker-3d {
+  width: 100%;
+  height: 500px;
+}
+
+#explode-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+}
+
 .about-section {
   padding: 1rem;
 }
@@ -338,6 +356,12 @@ nav svg {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   padding: 1rem;
+}
+
+.explosion-slider {
+  width: 80%;
+  margin: 1rem auto;
+  display: block;
 }
 
 .cta-wrapper {

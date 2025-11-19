@@ -16,6 +16,7 @@
         }
       }
     </script>
+    <script type="module" src="../assets/exploding-view.js"></script>
 </head>
 
 <body>
