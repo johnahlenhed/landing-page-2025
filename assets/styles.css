@@ -6,13 +6,13 @@
   --menu-bg-color: #333333;
   --menu-text-color: #fffef2;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
-  --accent-color: #616E42;
+  --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
-  
+
   --desktop-nav-background-color: #b9b9b9;
-  --lyxig-dark-green: #00401A;
-  --forest-green: #616E42;
-  --medium-grey: #45494F;
+  --lyxig-dark-green: #00401a;
+  --forest-green: #616e42;
+  --medium-grey: #45494f;
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -24,11 +24,11 @@ body {
   color: var(--primary-color);
 }
 /* Properties for products */
-.customizer-header{
+.customizer-header {
   padding: 0 1em;
 }
 .customizer-header h2,
-.products h2{
+.products h2 {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
@@ -36,18 +36,17 @@ body {
 .cta-wrapper p,
 .cta-button,
 .customizer-header,
-.product h2{
+.product h2 {
   font-family: IBM Plex Sans, sans-serif;
 }
-.products h2{
+.products h2 {
   color: var(--accent-color);
   text-transform: uppercase;
   margin: 0.5em 1em;
   text-align: center;
   padding: 1.3em;
-
 }
-.product-slider{
+.product-slider {
   position: relative;
   width: 100%;
   height: 25em;
@@ -66,7 +65,7 @@ body {
 .product-slider img.active {
   opacity: 1;
 }
-.product-card .speaker{
+.product-card .speaker {
   height: 110%;
   transform: scale(0.9);
 }
@@ -272,33 +271,54 @@ nav svg {
   z-index: 1;
 }
 
-.about-section {
-  padding: 1rem;
-}
-
 .about-section h2 {
-  margin-bottom: 0.2rem;
+  font-size: 2em;
+  margin: 0.5em 0;
+  text-transform: uppercase;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight:900;
+  color: var(--lyxig-dark-green);
 }
-
-.about-section h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+.fishnet-bg h4{
+  font-size: 1.5em;
+  margin: 1em 0;
 }
+.fishnet-bg h4,
+.fishnet-bg p{
+  color: #fff;
+  line-height: 1.5em;
+}
+.fishnet-bg p{
+  font-weight: 400;
+  margin-bottom: 5em;
+}
+.fishnet-bg {
+  background-image: url("/assets/images/aboutus_bg.svg");
+  background-size: cover;
+  height: 390px; /* Height for the img */
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.fishnet-bg button{
+  align-self: center;
 
-.about-carousel {
+}
+/* .about-carousel {
   width: 100%;
   padding: 1rem 0 0.8rem;
   overflow-x: auto;
   display: flex;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-}
+  scrollbar-width: none; Firefox 
+} */
 
-.about-carousel::-webkit-scrollbar {
-  display: none; /* hide scrollbar (Chrome/Safari) */
-}
+/* .about-carousel::-webkit-scrollbar {
+  display: none;  hide scrollbar (Chrome/Safari) 
+} */
 
-.about-list {
+/* .about-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -312,24 +332,24 @@ nav svg {
   height: auto;
   width: 250px;
   object-fit: contain;
-}
+} */
 
-.navigation-icons {
+/* .navigation-icons {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-}
+} */
 
-.navigation-icons svg {
+/* .navigation-icons svg {
   width: 1.2rem;
   height: 1.2rem;
   margin: 0 1rem;
   cursor: pointer;
-}
+} */
 
-.about-speaker-wrapper {
+/* .about-speaker-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -341,7 +361,7 @@ nav svg {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   padding: 1rem;
-}
+} */
 
 /* .cta-form {
   display: flex;
@@ -368,7 +388,7 @@ nav svg {
   appearance: none;
 } */
 
- .cta-wrapper h4 {
+.cta-wrapper h4 {
   text-decoration: none;
   margin: 0;
   font-size: 1.35em;
@@ -376,11 +396,11 @@ nav svg {
   text-transform: uppercase;
 }
 
-.cta-wrapper p{
+.cta-wrapper p {
   font-size: 1em;
   color: var(--medium-grey);
 }
-.cta-wrapper{
+.cta-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -401,41 +421,45 @@ nav svg {
   border-radius: 2em;
   text-transform: uppercase;
 }
-
+.cta-color-reverse {
+  background-color: #fff;
+  color: var(--lyxig-dark-green);
+  font-weight: 600;
+}
 .footer-section {
   height: fit-content;
   margin-top: 4em;
 }
-.footer-content{
+.footer-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.footer-content a{
+.footer-content a {
   text-decoration: none;
   color: var(--lyxig-dark-green);
   font-weight: 400;
   line-height: normal;
 }
-.footer-socials{
+.footer-socials {
   margin-bottom: 20em;
   gap: 0.5em;
 }
-.footer-socials li{
+.footer-socials li {
   display: inline-block;
 }
-.footer-socials li a{
+.footer-socials li a {
   width: auto;
   height: auto;
 }
-.footer-socials ul{
+.footer-socials ul {
   display: flex;
   align-items: center;
   gap: 0.5em;
   padding: 0;
 }
 .footer-socials ul,
-.footer-content{
+.footer-content {
   margin: 1em;
 }
 /* Desktop styles */
@@ -530,7 +554,7 @@ nav svg {
   }
 
   .navbar-desktop-scrolled li {
-    color: var(--primary-color)
+    color: var(--primary-color);
   }
 
   .hero-overlay {
