@@ -1,13 +1,12 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-
+  --lyxig-dark-green: #00401A;
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
   --menu-bg-color: #333333;
   --menu-text-color: #fffef2;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
-
   --accent-color: #616E42;
   --form-input-color: rgba(131, 131, 131, 0.7);
 
@@ -32,6 +31,8 @@ body {
   font-size: 1.7em;
   letter-spacing: -0.01em;
 }
+.cta-wrapper p,
+.cta-button,
 .customizer-header,
 .product h2{
   font-family: IBM Plex Sans, serif;
@@ -344,14 +345,22 @@ nav svg {
   text-align: center;
   margin-top: 2em;
   padding: 1em;
+  width: 55%;
+  margin: auto;
 }
 
 .cta-wrapper h4 {
   text-decoration: none;
   margin: 0;
-  font-size: 1.3em;
+  font-size: 4em;
 }
-
+.cta-wrapper h4,
+.cta-wrapper p{
+  color: var(--menu-bg-color);
+}
+.cta-wrapper p{
+  font-size: 2.25em;
+}
 .cta-form {
   display: flex;
   flex-direction: column;
@@ -378,39 +387,55 @@ nav svg {
 }
 
 .cta-button {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
-  font: inherit;
-  font-size: larger;
-  padding: 0;
+  font-size: 2em;
   text-align: center;
+  padding: 0.5em;
   border: none;
-  border-radius: 1px;
   cursor: pointer;
-  height: 3.5em;
-  width: 79%;
+  height: auto;
+  width: 5em;
   max-width: 400px;
+  border-radius: 0.5em;
 }
 
-footer {
-  height: 20vh;
-  font-size: larger;
+.footer-section {
+  height: fit-content;
   margin-top: 4em;
 }
-
-footer p {
-  text-align: center;
-  font-size: smaller;
-}
-
-footer div {
+.footer-content{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  height: 6vh;
+  flex-direction: column;
+  gap: 16px;
 }
-
+.footer-content a{
+  text-decoration: none;
+  color: var(--lyxig-dark-green);
+  font-weight: 400;
+  line-height: normal;
+}
+.footer-socials{
+  margin-bottom: 20em;
+  gap: 0.5em;
+}
+.footer-socials li{
+  display: inline-block;
+}
+.footer-socials li a{
+  width: auto;
+  height: auto;
+}
+.footer-socials ul{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0;
+}
+.footer-socials ul,
+.footer-content{
+  margin: 1em;
+}
 /* Desktop styles */
 
 @media screen and (min-width: 768px) {
