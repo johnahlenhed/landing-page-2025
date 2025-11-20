@@ -1,6 +1,5 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-  --lyxig-dark-green: #00401A;
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
@@ -9,8 +8,11 @@
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
   --accent-color: #616E42;
   --form-input-color: rgba(131, 131, 131, 0.7);
-
+  
   --desktop-nav-background-color: #b9b9b9;
+  --lyxig-dark-green: #00401A;
+  --forest-green: #616E42;
+  --medium-grey: #45494F;
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -35,7 +37,7 @@ body {
 .cta-button,
 .customizer-header,
 .product h2{
-  font-family: IBM Plex Sans, serif;
+  font-family: IBM Plex Sans, sans-serif;
 }
 .products h2{
   color: var(--accent-color);
@@ -341,35 +343,15 @@ nav svg {
   padding: 1rem;
 }
 
-.cta-wrapper {
-  text-align: center;
-  margin-top: 2em;
-  padding: 1em;
-  width: 55%;
-  margin: auto;
-}
-
-.cta-wrapper h4 {
-  text-decoration: none;
-  margin: 0;
-  font-size: 4em;
-}
-.cta-wrapper h4,
-.cta-wrapper p{
-  color: var(--menu-bg-color);
-}
-.cta-wrapper p{
-  font-size: 2.25em;
-}
-.cta-form {
+/* .cta-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
   margin-top: 0.5em;
-}
+} */
 
-.cta-form input {
+/* .cta-form input {
   text-align: center;
   font: inherit;
   -webkit-text-fill-color: var(--form-input-color) !important;
@@ -384,20 +366,40 @@ nav svg {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+} */
+
+ .cta-wrapper h4 {
+  text-decoration: none;
+  margin: 0;
+  font-size: 1.35em;
+  color: var(--lyxig-dark-green);
+  text-transform: uppercase;
 }
 
-.cta-button {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  font-size: 2em;
+.cta-wrapper p{
+  font-size: 1em;
+  color: var(--medium-grey);
+}
+.cta-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
   text-align: center;
-  padding: 0.5em;
+}
+.cta-button {
+  background-color: var(--forest-green);
+  color: #fff;
+  font-size: 0.85em;
+  text-align: center;
+  padding: 0.8em 0;
   border: none;
   cursor: pointer;
-  height: auto;
-  width: 5em;
+  width: 60%;
   max-width: 400px;
-  border-radius: 0.5em;
+  border-radius: 2em;
+  text-transform: uppercase;
 }
 
 .footer-section {
