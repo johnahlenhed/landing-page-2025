@@ -63,19 +63,24 @@
     <menu class="mobile-menu">
 
         <div class="mobile-menu-top">
-            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
-            <img src="/assets/images/kinforma-logo-light.png" alt="Kinforma logo">
+
             <div class="menu-icon-close">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
+
+            <img src="/assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
+
+            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
+            
         </div>
 
         <div class="menu-link-container">
             <ul>
-                <li><a>Butik</a></li>
+                <li><a>Kollektion</a></li>
                 <li><a>Om oss</a></li>
+                <li><a>FAQ</a></li>
                 <li><a>Kontakt</a></li>
                 <li><a>Hållbarhet</a></li>
             </ul>
@@ -85,8 +90,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
             </svg>
-            <p>Logga in</p>
+            <p><b><a>Logga in</a></b></p>
         </div>
+
+        <div class="some-icons-menu">
+            <img src="/assets/images/some-icons/instagram.svg">
+            <img src="/assets/images/some-icons/facebook.svg">
+            <img src="/assets/images/some-icons/tiktok.svg">
+            <img src="/assets/images/some-icons/linkedin.svg">
+        </div>
+
+        <div class="mobile-menu-footer">
+            <img src="/assets/images/kulle.png" alt="Kulle image">
+        </div>
+
     </menu>
 
     <div class="video-container">

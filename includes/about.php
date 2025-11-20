@@ -48,32 +48,4 @@
         <img src="/assets/images/kinforma-speaker.svg" alt="Kinforma speaker">
     </div>
 
-
-    <script>
-        // About section img scroll effect
-
-        const aboutSection = document.querySelector('.about-carousel');
-        const scrollPerClick = 300;
-
-        function scrollAboutSection(direction) {
-            if (direction === 'left') {
-                aboutSection.scrollBy({
-                    left: -scrollPerClick,
-                    behavior: 'smooth'
-                });
-            } else if (direction === 'right') {
-                aboutSection.scrollBy({
-                    left: scrollPerClick,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        document.querySelector('.navigation-icons svg:first-child')
-            .addEventListener('click', () => scrollAboutSection('left'));
-
-        document.querySelector('.navigation-icons svg:last-child')
-            .addEventListener('click', () => scrollAboutSection('right'));
-    </script>
-
 </section>

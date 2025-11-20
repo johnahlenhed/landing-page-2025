@@ -4,8 +4,9 @@
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
-  --menu-bg-color: #333333;
-  --menu-text-color: #fffef2;
+  --menu-bg-color: #ffffff;
+  --menu-text-color: #00401A;
+  --menu-icon-color: #00401A;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
 
   --accent-color: #616E42;
@@ -22,6 +23,12 @@ body {
   background-color: var(--background-color);
   color: var(--primary-color);
 }
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 /* Properties for products */
 .customizer-header{
   padding: 0 1em;
@@ -194,7 +201,7 @@ nav svg {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  color: white;
+  color: var(--menu-icon-color);
 }
 
 .menu-link-container {
@@ -241,6 +248,31 @@ nav svg {
   margin: 0;
   font-size: 0.8rem;
   color: var(--menu-text-color);
+}
+
+.some-icons-menu {
+  display: flex;
+  gap: 1rem;
+  margin: 5rem 0 0 2rem;
+}
+
+.some-icons-menu svg {
+  color: var(--menu-icon-color);
+  width: 2rem;
+  height: 2rem;
+}
+
+.mobile-menu-footer {
+  position: absolute;
+  bottom: -150px;
+  width: 100%;
+  height: auto;
+}
+
+.mobile-menu-footer img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .video-container {
