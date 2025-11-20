@@ -40,6 +40,20 @@ const keyLight = new THREE.DirectionalLight(0xffffff, 0.9); keyLight.position.se
 const fillLight = new THREE.DirectionalLight(0xffffff, 0.5); fillLight.position.set(-5, 4, 3); scene.add(fillLight);
 const rimLight = new THREE.DirectionalLight(0xffffff, 0.9); rimLight.position.set(-3, 5, -5); scene.add(rimLight);
 
+
+// CUSTOM DIRECTIONS PER PART (in same order as model.children)
+const partDirections = [
+    new THREE.Vector3( 0, 0, 0),  // part 0
+    new THREE.Vector3(0, 10, 0),  // part 1
+    new THREE.Vector3( 0, -10, 0),  // part 2
+    new THREE.Vector3( 0, 0, 0),  // part 3
+    new THREE.Vector3( 0, 0, 0),  // part 4
+    new THREE.Vector3( 0, 0, 0),  // part 5
+    // ...add more depending on number of child meshes
+];
+
+
+
 // ---- Load the 3D model
 const objLoader = new OBJLoader();
 objLoader.load('/assets/3d-model/stol_preview_texturtest1.obj', (object) => {
@@ -47,9 +61,9 @@ objLoader.load('/assets/3d-model/stol_preview_texturtest1.obj', (object) => {
     model = object;
 
     //Model positioning and scaling
-    model.position.set(0, 0, 0);
-    model.scale.set(0.5, 0.5, 0.5);
-    model.rotation.set(0, Math.PI, 0); // Adjust as needed
+    model.position.set(0.5, 0.5, 0.5); // x, y, z
+    model.scale.set(0.5, 0.5, 0.5); // x, y, z
+    model.rotation.set(0, Math.PI, 0); // x, y, z
 
     scene.add(model);
 
@@ -60,16 +74,16 @@ objLoader.load('/assets/3d-model/stol_preview_texturtest1.obj', (object) => {
         }
     });
 
-    // Save original positions and set directions INSIDE loader (model exists here)
     model.children.forEach((part, i) => {
-        // Save world/local position depending on your model (this is local)
-        part.userData.originalPos = part.position.clone();
+    part.userData.originalPos = part.position.clone();
 
-        // Option A: uniform left/right directions (normalized)
-        const dir = new THREE.Vector3(i % 2 === 0 ? 1 : -1, 0, 0).normalize();
+    // If a direction is provided for this index, use it.
+    // Otherwise default to no movement.
+    const customDir = partDirections[i] || new THREE.Vector3(0, 0, 0);
 
-        part.userData.direction = dir;
+    part.userData.direction = customDir.clone().normalize();
     });
+
 
     scene.add(object);
 }, undefined, (err) => console.error('OBJ load error', err));
@@ -103,4 +117,5 @@ function animate() {
 
     renderer.render(scene, camera);
 }
+
 animate();
