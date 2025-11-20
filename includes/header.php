@@ -73,7 +73,7 @@
             <img src="/assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
 
             <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
-            
+
         </div>
 
         <div class="menu-link-container">
@@ -102,6 +102,29 @@
 
         <div class="mobile-menu-footer">
             <img src="/assets/images/kulle.png" alt="Kulle image">
+        </div>
+
+    </menu>
+
+    <menu class="cart-menu">
+
+        <div class="cart-menu-top">
+
+            <div class="cart-logo">
+            <img src="/assets/images/Kinforma_Logo_Green_K.svg">
+            </div>
+            <div class="cart-close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+            </div>
+
+        </div>
+
+        <div class="cart-menu-content">
+            <p>Din kundvagn är tom</p>
+
+            <button class="explore-button">Utforska kollektionen</button>
         </div>
 
     </menu>
@@ -135,3 +158,4 @@
     </script>
 
     <script src="/assets/mobile-menu.js"></script>
+    <script src="/assets/cart-menu.js"></script>

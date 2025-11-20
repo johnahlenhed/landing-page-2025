@@ -13,6 +13,9 @@
   --form-input-color: rgba(131, 131, 131, 0.7);
 
   --desktop-nav-background-color: #b9b9b9;
+
+  --explore-button-bg-color: #616E42;
+  --explore-button-text-color: #FFFEF2;
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -264,7 +267,7 @@ nav svg {
 
 .mobile-menu-footer {
   position: absolute;
-  bottom: -150px;
+  bottom: -250px;
   width: 100%;
   height: auto;
 }
@@ -273,6 +276,82 @@ nav svg {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.cart-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--menu-bg-color);
+  width: 100%;
+  height: 30%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  box-shadow: #00000033 0px 10px 20px;
+}
+
+.cart-menu.active {
+  display: block;
+}
+
+.cart-menu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-left: 45px;
+  padding-top: 5px;
+}
+
+.cart-menu-top img {
+  height: auto;
+  width: 2.5rem;
+}
+
+.cart-close-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+  padding-top: 5px;
+  color: var(--menu-icon-color);
+  margin-right: 20px;
+}
+
+.cart-menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.cart-menu-content p {
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cart-menu button {
+  background-color: var(--explore-button-bg-color);
+  color: var(--explore-button-text-color);
+  height: 2rem;
+  width: 15rem;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 100px;
+  text-align: center;
 }
 
 .video-container {
