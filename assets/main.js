@@ -37,4 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showImage(index);
     });
   });
+
+  // Changes background for a shorter version
+  
 });
