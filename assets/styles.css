@@ -23,69 +23,95 @@ body {
   color: var(--primary-color);
 }
 /* Properties for products */
-.customizer-header {
-  padding: 0 1em;
-}
-.customizer-header h2,
-.products h2 {
-  font-weight: 600;
-  font-size: 1.7em;
-  letter-spacing: -0.01em;
-}
 .cta-wrapper p,
 .cta-button,
-.customizer-header,
-.product h2 {
+.customizer-header {
   font-family: IBM Plex Sans, sans-serif;
 }
-.products h2 {
-  color: var(--accent-color);
-  text-transform: uppercase;
-  margin: 0.5em 1em;
-  text-align: center;
-  padding: 1.3em;
+.customizer-header p,
+.products-intro p,
+.product-info p{
+  margin: 0 1em 1em 1em;
+  color: var(--lyxig-dark-green);
+  font-size: 1em;
+  font-family: "IBM Plex Sans";
 }
-.product-slider {
-  position: relative;
-  width: 100%;
-  height: 25em;
-  margin-bottom: 0.1em;
-  overflow: hidden;
+p.product-season{
+  margin-bottom: 0;
 }
-.product-slider img {
-  position: absolute;
-  inset: 0;
+.product-card{
   width: 100%;
-  height: 100%;
+}
+.product-card figure{
+  margin: 0;
+}
+.product-card figure img{
+  width: 100%;
+  aspect-ratio: 63 / 65;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  object-position: 40% 50%;
 }
-.product-slider img.active {
-  opacity: 1;
+.product-info-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
 }
-.product-card .speaker {
-  height: 110%;
-  transform: scale(0.9);
+.product-info p,
+.product-info h3{
+  margin: 0.3em 0;
 }
-.arrow-left,
-.arrow-right {
+.product-info h3{
+  font-size: 2em;
+  color: var(--lyxig-dark-green);
+}
+/* Carousel controls and design button placement */
+.product-gallery{
+  position:relative;
+}
+.carousel-controls {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.carousel-controls button {
+    width: 0.5em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--lyxig-dark-green);
+    cursor: pointer;
+}
+.cta-design {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: white;
+    color: var(--lyxig-dark-green);
+    padding: 0.4em 0.8em;
+    border-radius: 2em;
+    font-weight: 600;
+    border: 1px solid var(--lyxig-dark-green);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: "IBM Plex Sans";
+}
+/* https://www.a11y-collective.com/blog/visually-hidden/ 
+   For accessibility reasons */
+.visually-hidden{
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  border: none;
-  font-size: 1.2em;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  background-color: transparent;
-  z-index: 20;
-}
-.arrow-left {
-  left: 1em;
-}
-.arrow-right {
-  right: 1em;
+  white-space: nowrap;
+  width: 1px;
 }
 /* Properties for 3d model */
 #model-container {
@@ -101,13 +127,6 @@ body {
   border-radius: 0%;
   padding: 0;
 }
-.blue {
-  background-color: rgb(133, 185, 185);
-}
-.red {
-  background-color: rgb(175, 87, 87);
-}
-
 .navbar-desktop {
   display: none;
 }
@@ -269,12 +288,19 @@ nav svg {
   text-align: center;
   z-index: 1;
 }
+.about-section h2,
+.products-intro h2,
+.customizer-header h2,
+.product-info h3{
+  font-family: "Special Gothic Expanded One", sans-serif;
+} 
 
-.about-section h2 {
-  font-size: 3em;
+.about-section h2,
+.products-intro h2,
+.customizer-header h2 {
+  font-size: 2.7em;
   margin: 0.35em;
   text-transform: uppercase;
-  font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 900;
   color: var(--lyxig-dark-green);
 }
@@ -326,11 +352,14 @@ nav svg {
   font-style: normal;
   font-weight: 400;
 }
+.cta-wrapper,
+.products-intro {
+  margin: 3.5em 0;
+  padding: 1em;
+}
 .cta-wrapper {
-  margin: 4em 0;
   justify-content: center;
   align-items: center;
-  padding: 1em;
   text-align: center;
 }
 .cta-button {
@@ -352,10 +381,18 @@ nav svg {
   font-weight: 600;
   margin-bottom: 1.5em;
 }
+.product-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10em;
+  gap: 0.5em;
+}
 .footer-section,
 .footer-content,
 .cta-wrapper,
-.fishnet-bg {
+.fishnet-bg,
+.products-intro {
   display: flex;
   flex-direction: column;
 }
