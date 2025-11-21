@@ -8,7 +8,6 @@
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
   --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
-
   --desktop-nav-background-color: #b9b9b9;
   --lyxig-dark-green: #00401a;
   --forest-green: #616e42;
@@ -518,7 +517,9 @@ footer {
   .video-container {
     height: 80vh;
   }
-  .about-container {
+  
+/* ??? */
+.about-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.2em;
@@ -565,5 +566,5 @@ footer {
   .copyright {
     height: 25em;
   }
-}
 
+}
