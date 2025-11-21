@@ -1,7 +1,7 @@
 <section class="product-customizer">
   <div class="customizer-header">
     <h2>Personlig Design</h2>
-    <p>Skapa din egen design av vår fåtölj – personlig, unik och helt i din stil.</p>
+    <p>Skapa din egen design av vår fåtölj – <br>personlig, unik och helt i din stil.</p>
   </div>
   <figure id="model-container"></figure>
   <div id="color-options">
