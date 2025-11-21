@@ -1,21 +1,18 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
-  --menu-bg-color: #ffffff;
-  --menu-text-color: #00401A;
-  --menu-icon-color: #00401A;
+  --menu-bg-color: #333333;
+  --menu-text-color: #fffef2;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
-
-  --accent-color: #616E42;
+  --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
 
   --desktop-nav-background-color: #b9b9b9;
-
-  --explore-button-bg-color: #616E42;
-  --explore-button-text-color: #FFFEF2;
+  --lyxig-dark-green: #00401a;
+  --forest-green: #616e42;
+  --medium-grey: #45494f;
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -26,35 +23,30 @@ body {
   background-color: var(--background-color);
   color: var(--primary-color);
 }
-
-body.no-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
 /* Properties for products */
-.customizer-header{
+.customizer-header {
   padding: 0 1em;
 }
 .customizer-header h2,
-.products h2{
+.products h2 {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
 }
+.cta-wrapper p,
+.cta-button,
 .customizer-header,
-.product h2{
-  font-family: IBM Plex Sans, serif;
+.product h2 {
+  font-family: IBM Plex Sans, sans-serif;
 }
-.products h2{
+.products h2 {
   color: var(--accent-color);
   text-transform: uppercase;
   margin: 0.5em 1em;
   text-align: center;
   padding: 1.3em;
-
 }
-.product-slider{
+.product-slider {
   position: relative;
   width: 100%;
   height: 25em;
@@ -73,7 +65,7 @@ body.no-scroll {
 .product-slider img.active {
   opacity: 1;
 }
-.product-card .speaker{
+.product-card .speaker {
   height: 110%;
   transform: scale(0.9);
 }
@@ -139,9 +131,8 @@ body.no-scroll {
   transition: background-color 0.8s ease;
 }
 
-.navbar img {
-  height: 3.5rem;
-  width: auto;
+.navbar h1 {
+  margin: 0;
 }
 
 .navbar-scrolled {
@@ -149,13 +140,9 @@ body.no-scroll {
   color: var(--primary-color);
 }
 
-.navbar-scrolled img:nth-child(2) {
-  content: url(/assets/images/Kinforma_Logo_K.svg);
-}
-
 nav svg {
-  height: 2rem;
-  width: 2rem;
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
 .mobile-menu {
@@ -204,7 +191,7 @@ nav svg {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  color: var(--menu-icon-color);
+  color: white;
 }
 
 .menu-link-container {
@@ -253,107 +240,6 @@ nav svg {
   color: var(--menu-text-color);
 }
 
-.some-icons-menu {
-  display: flex;
-  gap: 1rem;
-  margin: 5rem 0 0 2rem;
-}
-
-.some-icons-menu svg {
-  color: var(--menu-icon-color);
-  width: 2rem;
-  height: 2rem;
-}
-
-.mobile-menu-footer {
-  position: absolute;
-  bottom: -250px;
-  width: 100%;
-  height: auto;
-}
-
-.mobile-menu-footer img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.cart-menu {
-  display: none;
-  position: absolute;
-  background-color: var(--menu-bg-color);
-  width: 100%;
-  height: 30%;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  z-index: 9999;
-  box-shadow: #00000033 0px 10px 20px;
-}
-
-.cart-menu.active {
-  display: block;
-}
-
-.cart-menu-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  margin-left: 45px;
-  padding-top: 5px;
-}
-
-.cart-menu-top img {
-  height: auto;
-  width: 2.5rem;
-}
-
-.cart-close-icon {
-  width: 1.8rem;
-  height: 1.8rem;
-  cursor: pointer;
-  padding-top: 5px;
-  color: var(--menu-icon-color);
-  margin-right: 20px;
-}
-
-.cart-menu-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-.cart-menu-content p {
-  margin: 0;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.cart-menu button {
-  background-color: var(--explore-button-bg-color);
-  color: var(--explore-button-text-color);
-  height: 2rem;
-  width: 15rem;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  border-radius: 100px;
-  text-align: center;
-}
-
 .video-container {
   position: absolute;
   inset: 0;
@@ -385,159 +271,154 @@ nav svg {
   z-index: 1;
 }
 
-.about-section {
-  padding: 1rem;
-}
-
 .about-section h2 {
-  margin-bottom: 0.2rem;
+  font-size: 3em;
+  margin: 0.35em;
+  text-transform: uppercase;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 900;
+  color: var(--lyxig-dark-green);
 }
-
-.about-section h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+.fishnet-bg h4 {
+  font-size: 1.5em;
+  margin: 1em 0;
 }
-
-.about-carousel {
+.fishnet-bg h4,
+.fishnet-bg p {
+  color: #fff;
+  line-height: 1.5em;
+}
+.fishnet-bg p {
+  font-weight: 400;
+}
+.fishnet-bg {
+  background-image: url("/assets/images/aboutus_bg.svg");
+  background-size: cover;
+  padding: 1.5em;
+  min-height: 390px;
+}
+.fishnet-bg button {
+  align-self: center;
+  margin-top: auto;
+}
+.k-video-container {
+  margin: 0.5em 0;
+}
+.k-video-container video {
   width: 100%;
-  padding: 1rem 0 0.8rem;
-  overflow-x: auto;
-  display: flex;
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-}
-
-.about-carousel::-webkit-scrollbar {
-  display: none; /* hide scrollbar (Chrome/Safari) */
-}
-
-.about-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: nowrap;
-  width: max-content;
-}
-
-.about-list li img {
   height: auto;
-  width: 250px;
-  object-fit: contain;
 }
-
-.navigation-icons {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.navigation-icons svg {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0 1rem;
-  cursor: pointer;
-}
-
-.about-speaker-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-speaker-wrapper img {
-  width: 75%;
-  height: auto;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-}
-
-.cta-wrapper {
-  text-align: center;
-  margin-top: 2em;
-  padding: 1em;
-}
-
-.cta-wrapper h4 {
+.cta-wrapper h3 {
   text-decoration: none;
   margin: 0;
-  font-size: 1.3em;
+  font-size: 1.55em;
+  color: var(--lyxig-dark-green);
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
 }
 
-.cta-form {
+.cta-wrapper p {
+  font-size: 1em;
+  color: var(--medium-grey);
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+.cta-wrapper {
+  margin: 4em 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+}
+.cta-button {
+  background-color: var(--forest-green);
+  color: #fff;
+  font-size: 0.85em;
+  text-align: center;
+  padding: 0.8em 0;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  max-width: 250px;
+  border-radius: 2em;
+  text-transform: uppercase;
+}
+.cta-color-reverse {
+  background-color: #fff;
+  color: var(--lyxig-dark-green);
+  font-weight: 600;
+  margin-bottom: 1.5em;
+}
+.footer-section,
+.footer-content,
+.cta-wrapper,
+.fishnet-bg {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  margin-top: 0.5em;
 }
-
-.cta-form input {
-  text-align: center;
-  font: inherit;
-  -webkit-text-fill-color: var(--form-input-color) !important;
+.footer-content {
+  gap: 16px;
+}
+.footer-content a {
   text-decoration: none;
-  width: 78%;
-  height: 3.5em;
-  border: 1px solid var(--primary-color);
-  box-shadow: inset 0 0 2.5px 0.1px var(--primary-color);
-  border-radius: 2px;
-  max-width: 400px;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  color: var(--lyxig-dark-green);
+  font-weight: 400;
+  line-height: normal;
 }
-
-.cta-button {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  font: inherit;
-  font-size: larger;
-  padding: 0;
-  text-align: center;
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  height: 3.5em;
-  width: 79%;
-  max-width: 400px;
+.footer-socials {
+  gap: 0.5em;
 }
-
-footer {
-  height: 20vh;
-  font-size: larger;
-  margin-top: 4em;
+.footer-socials li {
+  display: inline-block;
 }
-
-footer p {
-  text-align: center;
-  font-size: smaller;
+.footer-socials li a {
+  width: auto;
+  height: auto;
 }
-
-footer div {
+.footer-socials ul {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 2em;
-  height: 6vh;
+  gap: 0.5em;
+  padding: 0;
 }
-
+.footer-socials ul,
+.footer-content {
+  margin: 1em;
+}
+.copyright,
+footer {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.copyright-logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 25%;
+  /* Centers the logo */
+  transform: translateX(-50%);
+  margin-bottom: 3em;
+}
+  .footer-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .copyright {
+    width: 100%;
+    height: 10em;
+    position: relative;
+  }
 /* Desktop styles */
 
 @media screen and (min-width: 768px) {
-
-  body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-  }
-
   .navbar {
     display: none;
   }
@@ -546,21 +427,24 @@ footer div {
     background-color: var(--navbar-top-scroll-color);
     position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 5fr;
+    grid-template-rows: 5fr 1fr;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    padding: 1rem 2rem;
+    width: -webkit-fill-available;
+    padding: 8px 16px 16px 16px;
     transition: background-color 0.8s ease;
   }
 
   .navbar-items-desktop {
     display: flex;
-    gap: 5rem;
+    gap: 15rem;
     justify-content: space-evenly;
     align-items: center;
-    width: min(100%, 1200px);
+    width: 100%;
     height: auto;
     padding-bottom: 8px;
   }
@@ -568,7 +452,6 @@ footer div {
   .navbar-items-desktop img:nth-child(1) {
     height: 2rem;
     width: 2rem;
-    padding-top: 10px;
   }
 
   .navbar-items-desktop img:nth-child(2) {
@@ -577,23 +460,24 @@ footer div {
   }
 
   .navbar-items-desktop svg {
-    color: var(--menu-text-color);
     height: 2rem;
     width: 2rem;
-    padding-top: 10px;
+    color: var(--menu-text-color);
   }
 
   .nav-links-desktop {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: auto;
   }
 
   .nav-links-desktop ul {
     display: flex;
-    list-style: none;
     gap: 2rem;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
+    list-style: none;
   }
 
   .nav-links-desktop li {
@@ -609,19 +493,22 @@ footer div {
   .navbar-desktop-scrolled img:nth-child(1) {
     height: 2rem;
     width: 2rem;
-    padding-top: 10px;
   }
 
   .navbar-desktop-scrolled img:nth-child(2) {
-    content: url(/assets/images/Kinforma_Logo_FULL.svg);
+    height: 4rem;
+    width: auto;
+    content: url(/assets/images/kinforma-logo-dark.png);
   }
 
   .navbar-desktop-scrolled svg {
+    height: 2rem;
+    width: 2rem;
     color: var(--primary-color);
   }
 
   .navbar-desktop-scrolled li {
-    color: var(--primary-color)
+    color: var(--primary-color);
   }
 
   .hero-overlay {
@@ -631,4 +518,52 @@ footer div {
   .video-container {
     height: 80vh;
   }
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.2em;
+  }
+  .about-section h2 {
+    font-size: 3.5em;
+    margin: 0.3em;
+  }
+  .k-video-container {
+    width: 100%;
+    margin: 0;
+  }
+  .k-video-container video {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .fishnet-bg h4 {
+    margin: 0.5em 0;
+  }
+  .fishnet-bg p {
+    margin-top: 0.5em;
+  }
+  .cta-wrapper h3 {
+    font-size: 3em;
+  }
+  .cta-wrapper p,
+  .cta-button {
+    font-size: 1.2em;
+    margin: 0.5em;
+  }
+  .footer-content a,
+  .cta-wrapper p{
+    font-size: 1em;
+  }
+  .cta-button{
+    font-size: 0.85em;
+  }
+  .footer-socials ul,
+  .footer-content {
+    margin-left: 5em;
+  }
+  .copyright {
+    height: 25em;
+  }
 }
+
