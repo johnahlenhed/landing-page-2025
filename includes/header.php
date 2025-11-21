@@ -11,16 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles.css">
-    <script type="module" src="../assets/model.js"></script>
-    <script type="module" src="../assets/main.js"></script>
     <script type="importmap">
         {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            }
         }
-      }
     </script>
+    <script type="module" src="../assets/model.js"></script>
+    <script type="module" src="../assets/main.js"></script>
 </head>
 
 <body>
