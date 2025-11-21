@@ -552,9 +552,11 @@ footer {
     margin: 0.5em;
   }
   .footer-content a,
-  .cta-wrapper p,
-  .cta-button {
+  .cta-wrapper p{
     font-size: 1em;
+  }
+  .cta-button{
+    font-size: 0.85em;
   }
   .footer-socials ul,
   .footer-content {
@@ -564,19 +566,8 @@ footer {
     height: 25em;
   }
 }
-/* Small adjustments to the about me section due to content escaping container */
-@media screen and (max-width: 915px) {
-  .fishnet-bg {
-    padding: 1em;
-  }
-  .fishnet-bg h4 {
-    font-size: 1.3em;
-  }
-  .fishnet-bg p {
-    font-size: 0.97em;
-  }
-}
-@media screen and (min-width: 1400px) {
+
+/* @media screen and (min-width: 1400px) {
   .about-section h2 {
     font-size: 5em;
   }
@@ -595,5 +586,5 @@ footer {
   }
   .copyright-logo {
     margin-bottom: 4em;
-  }
-}
+  } 
+} */
