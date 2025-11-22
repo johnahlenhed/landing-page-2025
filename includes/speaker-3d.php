@@ -4,7 +4,3 @@
 
     <input type="range" min="0" max="100" value="50" class="explosion-slider">
 </section>
-
-
-
-<script src="../assets/exploding-view.js"></script>
