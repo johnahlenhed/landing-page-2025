@@ -11,7 +11,7 @@
     </figcaption>
   </figure>
 
-  <div class="product-info-flex">
+  <div class="model-flex">
 
     <!-- Color swatches body-->
     <div class="color-selectors">
@@ -49,8 +49,8 @@
     </div>
   
     <!-- CTA button -->
-    <button class="cta-button product-button">
-      Utforska
+    <button class="cta-button product-button button-disabled">
+      Utforska produkt
       <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
     </button>
   </div>

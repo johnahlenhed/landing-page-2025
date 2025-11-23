@@ -2,10 +2,16 @@
 require("content.php");
 ?>
 <section id="products-section">
-    <header class="products-intro">
-        <p class="product-season">Höst 2025</p>
-        <h2>Marstrand</h2>
-        <p>Upptäck vår senaste kollektion av 3D–printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
+    <header class="product-info-flex">
+        <div class="products-intro">
+            <p class="product-season">Höst 2025</p>
+            <h2>Marstrand</h2>
+            <p>Upptäck vår senaste kollektion av 3D–printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
+        </div>
+        <button class="cta-button product-button button-disabled">
+            Utforska kollektion
+            <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
+        </button>
     </header>
     <?php foreach ($products as $product) : ?>
         <article class="product-card">
