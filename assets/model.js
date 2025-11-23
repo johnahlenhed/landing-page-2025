@@ -140,7 +140,7 @@ document.querySelectorAll("#color-options button").forEach((btn) => {
   });
 });
 // ---- Changes the color of the button to the same color as given value
-document.querySelectorAll(".model-color").forEach((btn) => {
+document.querySelectorAll(".swatch").forEach((btn) => {
   const color = btn.getAttribute("data-color");
   btn.style.backgroundColor = color;
 });
