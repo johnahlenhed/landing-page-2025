@@ -16,6 +16,8 @@
 
   --explore-button-bg-color: #616E42;
   --explore-button-text-color: #FFFEF2;
+
+
 }
 
 /* We want these to apply to all screen sizes I think */
@@ -27,9 +29,9 @@ body {
   color: var(--primary-color);
 }
 
-body.no-scroll {
-  overflow: hidden;
+body.no-scroll { 
   height: 100vh;
+  overflow: hidden;
 }
 
 /* Properties for products */
@@ -150,7 +152,7 @@ body.no-scroll {
 }
 
 .navbar-scrolled img:nth-child(2) {
-  content: url(/assets/images/Kinforma_Logo_K.svg);
+  content: url(/assets/images/Kinforma_Logo_Green_K.svg);
 }
 
 nav svg {
@@ -353,8 +355,6 @@ nav svg {
   border-radius: 100px;
   text-align: center;
 }
-
-
 
 .video-container {
   position: absolute;
