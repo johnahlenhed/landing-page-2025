@@ -26,9 +26,12 @@ body {
 #product-customizer,
 #about-section,
 #cta-section,
-#footer-section{
+#footer-section,
+.product-button,
+.cta-button,
+.cta-button{
   font-family: "IBM Plex Sans";
-  
+ 
 }
 .customizer-header p,
 .products-intro p,
@@ -708,18 +711,14 @@ footer {
   }
   /* Desktop CTA section */
   .cta-wrapper h3 {
-    font-size: 3em;
-  }
-  .cta-wrapper {
-    font-size: 1.2em;
-  }
-  .cta-wrapper p,
-  .cta-button {
-    margin: 0.5em;
+    font-size: 2em;
   }
   .footer-content a,
   .cta-wrapper p {
     font-size: 1em;
+  }
+  .cta-wrapper{
+    padding: 0.5em 10em;
   }
   .cta-button {
     font-size: 0.85em;
