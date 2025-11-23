@@ -347,12 +347,14 @@ nav svg {
   height: 2rem;
   width: 15rem;
   border: none;
-  font-size: 1.21rem;
+  font-size: 1.2rem;
   cursor: pointer;
   margin-top: 1rem;
   border-radius: 100px;
   text-align: center;
 }
+
+
 
 .video-container {
   position: absolute;
