@@ -12,6 +12,8 @@
     <!-- Google icon link -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
     <link rel="stylesheet" href="/assets/styles.css">
+    <script type="module" src="/assets/model.js"></script>
+    <script type="module" src="/assets/main.js"></script>
     <script type="importmap">
         {
             "imports": {
@@ -20,8 +22,7 @@
             }
         }
     </script>
-    <script type="module" src="../assets/model.js"></script>
-    <script type="module" src="../assets/main.js"></script>
+    <script type="module" src="/assets/exploding-view.js"></script>
 </head>
 
 <body>
