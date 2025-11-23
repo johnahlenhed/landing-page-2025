@@ -19,22 +19,16 @@
 body {
   padding-bottom: var(--safe-bottom);
   margin: 0;
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: "IBM Plex Sans";
   background-color: var(--background-color);
   color: var(--primary-color);
 }
 /* Properties for products */
-.cta-wrapper p,
-.cta-button,
-.customizer-header {
-  font-family: IBM Plex Sans, sans-serif;
-}
 .customizer-header p,
 .products-intro p,
 .product-info p {
   color: var(--lyxig-dark-green);
   font-size: 1em;
-  font-family: "IBM Plex Sans";
 }
 .customizer-header,
 .product-info-flex,
@@ -123,7 +117,6 @@ p.product-season {
   border: 1px solid var(--lyxig-dark-green);
   cursor: pointer;
   text-transform: uppercase;
-  font-family: "IBM Plex Sans";
 }
 .cta-design:hover{
   background-color: var(--light-green);
@@ -163,8 +156,6 @@ p.product-season {
 }
 .color-selectors {
   display: flex;
-  gap: 2rem;
-  margin-top: 1rem;
 }
 .color-toggle {
   background: none;
@@ -190,6 +181,10 @@ p.product-season {
   gap: .6rem;
   flex-wrap: wrap;
 }
+.color-toggle span{
+  text-transform: uppercase;
+  color: var(--lyxig-dark-green)
+}
 /* Hidden list before toggle */
 .swatch-list[hidden] {
   display: none !important;
@@ -203,6 +198,7 @@ p.product-season {
   box-shadow: rgba(0, 0, 0, 0.25) 0.2em 0.2em 0.2em -0.2em inset, 
               rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset;
 }
+
 .navbar-desktop {
   display: none;
 }
@@ -420,7 +416,6 @@ nav svg {
   margin: 0;
   font-size: 1.4em;
   color: var(--lyxig-dark-green);
-  font-family: "IBM Plex Sans";
   font-style: normal;
   font-weight: 700;
   letter-spacing: -0.96px;
@@ -429,7 +424,7 @@ nav svg {
 .cta-wrapper p {
   font-size: 1em;
   color: var(--medium-grey);
-  font-family: "IBM Plex Sans";
+
   font-style: normal;
   font-weight: 400;
 }
