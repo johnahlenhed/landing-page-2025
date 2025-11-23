@@ -30,80 +30,80 @@ body {
 }
 .customizer-header p,
 .products-intro p,
-.product-info p{
+.product-info p {
   margin: 0 1em 1em 1em;
   color: var(--lyxig-dark-green);
   font-size: 1em;
   font-family: "IBM Plex Sans";
 }
-p.product-season{
+p.product-season {
   margin-bottom: 0;
 }
-.product-card{
+.product-card {
   width: 100%;
 }
-.product-card figure{
+.product-card figure {
   margin: 0;
 }
-.product-card figure img{
+.product-card figure img {
   width: 100%;
   aspect-ratio: 63 / 65;
   object-fit: cover;
   object-position: 40% 50%;
 }
-.product-info-flex{
+.product-info-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
 }
 .product-info p,
-.product-info h3{
+.product-info h3 {
   margin: 0.3em 0;
 }
-.product-info h3{
+.product-info h3 {
   font-size: 2em;
   color: var(--lyxig-dark-green);
 }
 /* Carousel controls and design button placement */
-.product-gallery{
-  position:relative;
+.product-gallery {
+  position: relative;
 }
 .carousel-controls {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    display: flex;
-    gap: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
 }
 .carousel-controls button {
-    width: 0.5em;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    border: none;
-    background-color: var(--lyxig-dark-green);
-    cursor: pointer;
+  width: 0.5em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--lyxig-dark-green);
+  cursor: pointer;
 }
 .cta-design {
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    background-color: white;
-    color: var(--lyxig-dark-green);
-    padding: 0.4em 0.8em;
-    border-radius: 2em;
-    font-weight: 600;
-    border: 1px solid var(--lyxig-dark-green);
-    cursor: pointer;
-    text-transform: uppercase;
-    font-family: "IBM Plex Sans";
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: white;
+  color: var(--lyxig-dark-green);
+  padding: 0.4em 0.8em;
+  border-radius: 2em;
+  font-weight: 600;
+  border: 1px solid var(--lyxig-dark-green);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "IBM Plex Sans";
 }
 /* https://www.a11y-collective.com/blog/visually-hidden/ 
    For accessibility reasons */
-.visually-hidden{
+.visually-hidden {
   border: 0;
   clip-path: inset(50%);
   height: 1px;
@@ -291,9 +291,9 @@ nav svg {
 .about-section h2,
 .products-intro h2,
 .customizer-header h2,
-.product-info h3{
+.product-info h3 {
   font-family: "Special Gothic Expanded One", sans-serif;
-} 
+}
 
 .about-section h2,
 .products-intro h2,
@@ -381,7 +381,7 @@ nav svg {
   font-weight: 600;
   margin-bottom: 1.5em;
 }
-.product-button{
+.product-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,18 +440,18 @@ footer {
   transform: translateX(-50%);
   margin-bottom: 3em;
 }
-  .footer-bg {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .copyright {
-    width: 100%;
-    height: 10em;
-    position: relative;
-  }
+.footer-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.copyright {
+  width: 100%;
+  height: 10em;
+  position: relative;
+}
 /* Desktop styles */
 
 @media screen and (min-width: 768px) {
@@ -554,9 +554,9 @@ footer {
   .video-container {
     height: 80vh;
   }
-  
-/* ??? */
-.about-container {
+
+  /* ??? */
+  .about-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.2em;
@@ -590,10 +590,10 @@ footer {
     margin: 0.5em;
   }
   .footer-content a,
-  .cta-wrapper p{
+  .cta-wrapper p {
     font-size: 1em;
   }
-  .cta-button{
+  .cta-button {
     font-size: 0.85em;
   }
   .footer-socials ul,
@@ -603,5 +603,4 @@ footer {
   .copyright {
     height: 25em;
   }
-
 }
