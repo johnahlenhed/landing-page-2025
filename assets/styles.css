@@ -10,6 +10,7 @@
   --form-input-color: rgba(131, 131, 131, 0.7);
   --desktop-nav-background-color: #b9b9b9;
   --lyxig-dark-green: #00401a;
+  --light-green: #7C985D;
   --forest-green: #616e42;
   --medium-grey: #45494f;
 }
@@ -65,7 +66,7 @@ p.product-season {
 }
 .product-info p,
 .product-info h3 {
-  margin: 0.3em 0;
+  margin: 0;
 }
 .product-info h3 {
   font-size: 2em;
@@ -111,6 +112,7 @@ p.product-season {
 }
 /* Button */
 .cta-design {
+  text-decoration: none;
   align-items: center;
   gap: 0.5em;
   background-color: white;
@@ -122,6 +124,15 @@ p.product-season {
   cursor: pointer;
   text-transform: uppercase;
   font-family: "IBM Plex Sans";
+}
+.cta-design:hover{
+  background-color: var(--light-green);
+  color: var(--menu-text-color);
+  border-color: var(--light-green);
+}
+.cta-design span{
+  /* Icon size */
+  font-size: 1.4em;
 }
 .mobile-cta-design{
   position: absolute;
@@ -603,10 +614,11 @@ footer {
   display: none;
   }
   .desktop-cta-design{
-  display: block;
+  display: inline-flex;
   position: relative;
   top: 0;
   left: 0;
+  margin-top: 0.5em;
   }
 
   /* Desktop about section */
