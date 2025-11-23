@@ -31,11 +31,17 @@ body {
 .customizer-header p,
 .products-intro p,
 .product-info p {
-  margin: 0 1em 1em 1em;
   color: var(--lyxig-dark-green);
   font-size: 1em;
   font-family: "IBM Plex Sans";
 }
+.customizer-header,
+.product-info-flex,
+.products-intro{
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
 p.product-season {
   margin-bottom: 0;
 }
@@ -49,13 +55,13 @@ p.product-season {
   width: 100%;
   aspect-ratio: 63 / 65;
   object-fit: cover;
-  object-position: 40% 50%;
+  /* If objects on images aren't centered */
+  object-position: 40% 50%; 
 }
 .product-info-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
 }
 .product-info p,
 .product-info h3 {
@@ -65,30 +71,46 @@ p.product-season {
   font-size: 2em;
   color: var(--lyxig-dark-green);
 }
-/* Carousel controls and design button placement */
-.product-gallery {
-  position: relative;
+.mobile-slider {
+  display: block;
 }
-.carousel-controls {
+.slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.slider-track img {
+  width: 100%;
+  scroll-snap-align: center;
+}
+.slider-dots {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
   display: flex;
   gap: 0.5rem;
 }
-.carousel-controls button {
+.dot {
   width: 0.5em;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  border: none;
-  background-color: var(--lyxig-dark-green);
-  cursor: pointer;
+  border: 1px solid var(--lyxig-dark-green);
+  background-color: transparent;
 }
+
+.dot.active {
+  background-color: var(--lyxig-dark-green);
+}
+.product-gallery {
+  position: relative;
+}
+.desktop-gallery {
+  display: none;
+}
+/* Button */
 .cta-design {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  display: inline-flex;
   align-items: center;
   gap: 0.5em;
   background-color: white;
@@ -100,6 +122,15 @@ p.product-season {
   cursor: pointer;
   text-transform: uppercase;
   font-family: "IBM Plex Sans";
+}
+.mobile-cta-design{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  display: inline-flex;
+}
+.desktop-cta-design{
+  display: none;
 }
 /* https://www.a11y-collective.com/blog/visually-hidden/ 
    For accessibility reasons */
@@ -294,12 +325,19 @@ nav svg {
 .product-info h3 {
   font-family: "Special Gothic Expanded One", sans-serif;
 }
-
+.product-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10em;
+  gap: 0.5em;
+  white-space: nowrap;
+}
 .about-section h2,
 .products-intro h2,
 .customizer-header h2 {
-  font-size: 2.7em;
-  margin: 0.35em;
+  font-size: 2.5em;
+  margin: 0;
   text-transform: uppercase;
   font-weight: 900;
   color: var(--lyxig-dark-green);
@@ -333,10 +371,11 @@ nav svg {
   width: 100%;
   height: auto;
 }
+/* CTA */
 .cta-wrapper h3 {
   text-decoration: none;
   margin: 0;
-  font-size: 1.55em;
+  font-size: 1.4em;
   color: var(--lyxig-dark-green);
   font-family: "IBM Plex Sans";
   font-style: normal;
@@ -344,7 +383,6 @@ nav svg {
   letter-spacing: -0.96px;
   text-transform: uppercase;
 }
-
 .cta-wrapper p {
   font-size: 1em;
   color: var(--medium-grey);
@@ -352,11 +390,7 @@ nav svg {
   font-style: normal;
   font-weight: 400;
 }
-.cta-wrapper,
-.products-intro {
-  margin: 3.5em 0;
-  padding: 1em;
-}
+
 .cta-wrapper {
   justify-content: center;
   align-items: center;
@@ -370,23 +404,17 @@ nav svg {
   padding: 0.8em 0;
   border: none;
   cursor: pointer;
-  width: 60%;
+  width: auto;
   max-width: 250px;
   border-radius: 2em;
   text-transform: uppercase;
+  padding: 0.8em 1em;
 }
 .cta-color-reverse {
   background-color: #fff;
   color: var(--lyxig-dark-green);
   font-weight: 600;
   margin-bottom: 1.5em;
-}
-.product-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 10em;
-  gap: 0.5em;
 }
 .footer-section,
 .footer-content,
@@ -396,6 +424,7 @@ nav svg {
   display: flex;
   flex-direction: column;
 }
+/* Footer section */
 .footer-content {
   gap: 16px;
 }
@@ -554,8 +583,33 @@ footer {
   .video-container {
     height: 80vh;
   }
+  /* Desktop product section */
+  .product-button>span::after{
+    content:"produkt";
+  }
+  .mobile-slider {
+    display: none;
+  }
+  .desktop-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .desktop-gallery img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .mobile-cta-design{
+  display: none;
+  }
+  .desktop-cta-design{
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  }
 
-  /* ??? */
+  /* Desktop about section */
   .about-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -581,12 +635,15 @@ footer {
   .fishnet-bg p {
     margin-top: 0.5em;
   }
+  /* Desktop CTA section */
   .cta-wrapper h3 {
     font-size: 3em;
   }
+  .cta-wrapper {
+    font-size: 1.2em;
+  }
   .cta-wrapper p,
   .cta-button {
-    font-size: 1.2em;
     margin: 0.5em;
   }
   .footer-content a,
@@ -596,6 +653,7 @@ footer {
   .cta-button {
     font-size: 0.85em;
   }
+  /* Desktop footer section */
   .footer-socials ul,
   .footer-content {
     margin-left: 5em;

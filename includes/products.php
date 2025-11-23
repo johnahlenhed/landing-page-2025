@@ -7,37 +7,66 @@ require("content.php");
         <h2>Marstrand</h2>
         <p>Upptäck vår senaste kollektion av 3D–printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
     </header>
-
-
-
     <?php foreach ($products as $product) : ?>
         <article class="product-card">
-            <!-- Images -->
-            <figure class="product-gallery">
-                <figcaption class="visually-hidden"><?php echo $product['figcaption'] ?></figcaption>
-                <button class="cta-design">
-                     <img src="/assets/images/customize_icon.svg"/>Designa
+
+            <!-- MOBILE FIRST: SLIDER -->
+            <div class="product-gallery mobile-slider">
+                <div class="slider-track">
+                    <img src="<?= $product['img-path-active'] ?>" alt="<?= $product['img-alt'] ?>">
+                    <img src="<?= $product['img-path_2'] ?>" alt="<?= $product['img-alt'] ?>">
+                </div>
+
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <button class="cta-design mobile-cta-design">
+                    <img src="/assets/images/customize_icon.svg" />Designa
                 </button>
+            </div>
+
+            <!-- Desktop gallery (hidden on mobile) -->
+            <figure class="product-gallery desktop-gallery">
+                <figcaption class="visually-hidden"><?= $product['figcaption'] ?></figcaption>
                 <img src="<?= $product['img-path-active'] ?>" alt="<?= $product['img-alt'] ?>">
-                <nav class="carousel-controls" aria-label="Bildnavigering">
-                    <!-- Navigation -->
-                    <button class="" aria-label="Föregående bild"></button>
-                    <button class="" aria-label="Nästa bild"></button>
-                </nav>
+                <img src="<?= $product['img-path_2'] ?>" alt="<?= $product['img-alt_2'] ?>">
             </figure>
-            <!-- Information -->
+            
+            <!-- Product Information -->
             <div class="product-info-flex">
                 <div class="product-info">
-                    <p><?php echo $product['type'] ?></p>
-                    <h3><?php echo $product['name'] ?></h3>
-                    <p>Från <?php echo $product['price'] ?> kr</p>
+                    <p><?= $product['type'] ?></p>
+                    <h3><?= $product['name'] ?></h3>
+                    <p>Från <?= $product['price'] ?> kr</p>
+                    <button class="cta-design desktop-cta-design">
+                        <img src="/assets/images/customize_icon.svg" />Designa
+                    </button>
+
                 </div>
+                
                 <div class="button-position">
                     <button class="cta-button product-button">
-                        Utforska  <img src="/assets/images/arrow_forward.svg" alt="arrow forward icon"/>
+                        <span>
+                            Utforska
+                        </span>
+                        <img src="/assets/images/arrow_forward.svg" alt="arrow forward icon" />
                     </button>
                 </div>
             </div>
         </article>
     <?php endforeach; ?>
 </section>
+
+<script>
+    document.querySelectorAll(".mobile-slider").forEach(slider => {
+        const track = slider.querySelector(".slider-track");
+        const dots = slider.querySelectorAll(".dot");
+
+        track.addEventListener("scroll", () => {
+            const index = Math.round(track.scrollLeft / track.clientWidth);
+            dots.forEach((d, i) => d.classList.toggle("active", i === index));
+        });
+    });
+</script>
