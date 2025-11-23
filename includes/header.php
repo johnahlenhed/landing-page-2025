@@ -34,7 +34,7 @@
             </svg>
         </div>
 
-        <img src="/assets/images/Kinforma_Logo_White_K.svg" alt="kinforma logo">
+        <img src="/assets/images/Kinforma_Logo_Green_K.svg" alt="kinforma logo">
 
         <div class="cart-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
