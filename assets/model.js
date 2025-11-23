@@ -1,9 +1,10 @@
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.0/build/three.module.js";
-import { OBJLoader } from "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/loaders/OBJLoader.js";
-import { MTLLoader } from "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/loaders/MTLLoader.js";
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/controls/OrbitControls.js";
-import { FXAAPass } from "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/postprocessing/FXAAPass.js";
-import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/postprocessing/EffectComposer.js";
+import * as THREE from "three";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FXAAPass } from "three/addons/postprocessing/FXAAPass.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 
 // ---- Container for the 3d model
 const container = document.getElementById("model-container");
@@ -139,7 +140,7 @@ document.querySelectorAll("#color-options button").forEach((btn) => {
   });
 });
 // ---- Changes the color of the button to the same color as given value
-document.querySelectorAll(".model-color").forEach((btn) => {
+document.querySelectorAll(".swatch").forEach((btn) => {
   const color = btn.getAttribute("data-color");
   btn.style.backgroundColor = color;
 });

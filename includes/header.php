@@ -5,16 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kinforma</title>
+    <!-- Google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <!-- Google icon link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
     <link rel="stylesheet" href="/assets/styles.css">
     <script type="module" src="/assets/model.js"></script>
     <script type="module" src="/assets/main.js"></script>
     <script type="importmap">
         {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            }
         }
-      }
     </script>
     <script type="module" src="/assets/exploding-view.js"></script>
 </head>
@@ -29,7 +35,7 @@
             </svg>
         </div>
 
-        <h1>Kinforma</h1>
+        <img src="/assets/images/Kinforma_Logo_Green_K.svg" alt="kinforma logo">
 
         <div class="cart-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -43,7 +49,7 @@
         <div class="navbar-items-desktop">
             <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
 
-            <img src="/assets/images/kinforma-logo-light.png" alt="Kinforma logo">
+            <img src="/assets/images/Kinforma_Logo_White_FULL.svg" alt="Kinforma logo">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -64,19 +70,24 @@
     <menu class="mobile-menu">
 
         <div class="mobile-menu-top">
-            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
-            <img src="/assets/images/kinforma-logo-light.png" alt="Kinforma logo">
+
             <div class="menu-icon-close">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
+
+            <img src="/assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
+
+            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
+
         </div>
 
         <div class="menu-link-container">
             <ul>
-                <li><a>Butik</a></li>
+                <li><a>Kollektion</a></li>
                 <li><a>Om oss</a></li>
+                <li><a>FAQ</a></li>
                 <li><a>Kontakt</a></li>
                 <li><a>Hållbarhet</a></li>
             </ul>
@@ -86,8 +97,43 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
             </svg>
-            <p>Logga in</p>
+            <p><b><a>Logga in</a></b></p>
         </div>
+
+        <div class="some-icons-menu">
+            <img src="/assets/images/some-icons/instagram.svg">
+            <img src="/assets/images/some-icons/facebook.svg">
+            <img src="/assets/images/some-icons/tiktok.svg">
+            <img src="/assets/images/some-icons/linkedin.svg">
+        </div>
+
+        <div class="mobile-menu-footer">
+            <img src="/assets/images/kulle.png" alt="Kulle image">
+        </div>
+
+    </menu>
+
+    <menu class="cart-menu">
+
+        <div class="cart-menu-top">
+
+            <div class="cart-logo">
+                <img src="/assets/images/Kinforma_Logo_Green_K.svg">
+            </div>
+            <div class="cart-close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </div>
+
+        </div>
+
+        <div class="cart-menu-content">
+            <p>Din kundvagn är tom</p>
+
+            <button class="explore-button">Utforska kollektionen</button>
+        </div>
+
     </menu>
 
     <div class="video-container">
@@ -119,3 +165,4 @@
     </script>
 
     <script src="/assets/mobile-menu.js"></script>
+    <script src="/assets/cart-menu.js"></script>
