@@ -3,8 +3,8 @@
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
-  --menu-bg-color: #333333;
-  --menu-text-color: #fffef2;
+  --menu-bg-color: #ffffff;
+  --menu-text-color: #00401A;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
   --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
@@ -42,6 +42,8 @@ body.no-scroll {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
+}
+
 #products-section,
 #product-customizer,
 #about-section,
@@ -258,7 +260,7 @@ p.product-season,
 }
 .navbar {
   background-color: var(--navbar-top-scroll-color);
-  color: white;
+  color: var(--menu-text-color);
   font-size: small;
   width: -webkit-fill-available;
   height: 2rem;
@@ -272,8 +274,15 @@ p.product-season,
   top: 0;
   transition: background-color 0.8s ease;
 }
-.navbar h1 {
-  margin: 0;
+
+.navbar img:nth-child(1) {
+  height: auto;
+  width: 1.3rem;
+}
+
+.navbar img:nth-child(2) {
+  height: auto;
+  width: 2rem;
 }
 
 .navbar-scrolled {
@@ -283,6 +292,8 @@ p.product-season,
 
 .navbar-scrolled img:nth-child(2) {
   content: url(/assets/images/Kinforma_Logo_Green_K.svg);
+  height: auto;
+  width: 2rem;
 }
 
 nav svg {
@@ -298,6 +309,7 @@ nav svg {
   display: block;
   position: absolute;
   background-color: var(--menu-bg-color);
+  color: var(--menu-text-color);
   width: 100%;
   height: 100%;
   top: 0;
@@ -336,7 +348,7 @@ nav svg {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  color: white;
+  color: var(--menu-icon-color);
 }
 
 .menu-link-container {
