@@ -5,17 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kinforma</title>
+    <!-- Google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <!-- Google icon link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
     <link rel="stylesheet" href="/assets/styles.css">
-    <script type="module" src="../assets/model.js"></script>
-    <script type="module" src="../assets/main.js"></script>
     <script type="importmap">
         {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.181.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.181.0/examples/jsm/"
+            }
         }
-      }
     </script>
+    <script type="module" src="../assets/model.js"></script>
+    <script type="module" src="../assets/main.js"></script>
 </head>
 
 <body>
@@ -111,12 +117,12 @@
         <div class="cart-menu-top">
 
             <div class="cart-logo">
-            <img src="/assets/images/Kinforma_Logo_Green_K.svg">
+                <img src="/assets/images/Kinforma_Logo_Green_K.svg">
             </div>
             <div class="cart-close-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
             </div>
 
         </div>
