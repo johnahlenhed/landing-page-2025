@@ -19,11 +19,17 @@
 body {
   padding-bottom: var(--safe-bottom);
   margin: 0;
-  font-family: "IBM Plex Sans";
   background-color: var(--background-color);
   color: var(--primary-color);
 }
-/* Properties for products */
+#products-section,
+#product-customizer,
+#about-section,
+#cta-section,
+#footer-section{
+  font-family: "IBM Plex Sans";
+  
+}
 .customizer-header p,
 .products-intro p,
 .product-info p {
@@ -32,13 +38,28 @@ body {
 }
 .customizer-header,
 .product-info-flex,
-.products-intro{
+.products-intro,
+.cta-wrapper,
+#about-section h2{
   margin: 0.5em;
   padding: 0.5em;
 }
+section{
+  margin: 1.7em 0;
+}
+p.product-season,
+.cta-design,
+.color-toggle span,
+h1, h2, h3, h4, h5, h6,
+.cta-button{
+  text-transform: uppercase;
+}
 
+/* Properties for products */
 p.product-season {
-  margin-bottom: 0;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 .product-card {
   width: 100%;
@@ -46,11 +67,11 @@ p.product-season {
 .product-card figure {
   margin: 0;
 }
-.product-card figure img {
+.product-card figure img,
+.slider-track img {
   width: 100%;
-  aspect-ratio: 63 / 65;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  /* If objects on images aren't centered */
   object-position: 40% 50%; 
 }
 .product-info-flex {
@@ -59,7 +80,8 @@ p.product-season {
   align-items: center;
 }
 .product-info p,
-.product-info h3 {
+.product-info h3,
+.customizer-header p {
   margin: 0;
 }
 .product-info h3 {
@@ -116,7 +138,6 @@ p.product-season {
   font-weight: 600;
   border: 1px solid var(--lyxig-dark-green);
   cursor: pointer;
-  text-transform: uppercase;
 }
 .cta-design:hover{
   background-color: var(--light-green);
@@ -182,7 +203,6 @@ p.product-season {
   flex-wrap: wrap;
 }
 .color-toggle span{
-  text-transform: uppercase;
   color: var(--lyxig-dark-green)
 }
 /* Hidden list before toggle */
@@ -357,7 +377,7 @@ nav svg {
   text-align: center;
   z-index: 1;
 }
-.about-section h2,
+#about-section h2,
 .products-intro h2,
 .customizer-header h2,
 .product-info h3 {
@@ -371,12 +391,11 @@ nav svg {
   gap: 0.5em;
   white-space: nowrap;
 }
-.about-section h2,
+#about-section h2,
 .products-intro h2,
 .customizer-header h2 {
   font-size: 2.5em;
   margin: 0;
-  text-transform: uppercase;
   font-weight: 900;
   color: var(--lyxig-dark-green);
 }
@@ -419,7 +438,6 @@ nav svg {
   font-style: normal;
   font-weight: 700;
   letter-spacing: -0.96px;
-  text-transform: uppercase;
 }
 .cta-wrapper p {
   font-size: 1em;
@@ -445,7 +463,6 @@ nav svg {
   width: auto;
   max-width: 250px;
   border-radius: 2em;
-  text-transform: uppercase;
   padding: 0.8em 1em;
 }
 .cta-color-reverse {
@@ -454,7 +471,7 @@ nav svg {
   font-weight: 600;
   margin-bottom: 1.5em;
 }
-.footer-section,
+#footer-section,
 .footer-content,
 .cta-wrapper,
 .fishnet-bg,
@@ -654,7 +671,7 @@ footer {
     grid-template-columns: 1fr 2fr;
     gap: 1.2em;
   }
-  .about-section h2 {
+  #about-section h2 {
     font-size: 3.5em;
     margin: 0.3em;
   }

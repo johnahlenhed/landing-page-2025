@@ -1,7 +1,7 @@
 <?php
 require("content.php");
 ?>
-<section class="products-section">
+<section id="products-section">
     <header class="products-intro">
         <p class="product-season">Höst 2025</p>
         <h2>Marstrand</h2>

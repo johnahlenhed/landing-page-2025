@@ -1,4 +1,4 @@
-<section>
+<section id="cta-section">
     <div class="cta-wrapper">
         <h3>Missa inte nästa kollektion</h3>
         <p>Bli medlem i Klubb Kinforma och var först med att ta del av nya kollektioner, exklusiva erbjudanden och nyheter.</p>

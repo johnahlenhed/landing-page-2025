@@ -1,4 +1,4 @@
-<section class="about-section">
+<section id="about-section">
     <h2>Om oss</h2>
     <div class="about-container">
         <article class="fishnet-bg">

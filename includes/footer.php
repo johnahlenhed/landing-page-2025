@@ -1,4 +1,4 @@
-<footer class="footer-section">
+<footer id="footer-section">
     <div class="footer-content">
         <a href="#">Kollektion</a>
         <a href="#">Om oss</a>
