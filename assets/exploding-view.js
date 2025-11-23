@@ -2,6 +2,16 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
+import { HDRLoader } from "three/addons/loaders/HDRLoader.js";
+
+const hdrLoader = new HDRLoader();
+hdrLoader.load("/assets/3d-model/speaker/studio_small_03_4k.hdr", (hdr) => {
+  hdr.mapping = THREE.EquirectangularReflectionMapping;
+
+  scene.environment = hdr;
+  scene.background = null;
+});
+
 let model;
 let exploded = false;
 let explodeProgress = 0; // 0 = normal, 1 = exploded
@@ -57,6 +67,7 @@ scene.add(rimLight);
 
 // DIRECTIONS PER PART (in same order as model.children)
 const partDirections = [
+  
   new THREE.Vector3(1, 0, 0), // 1. speaker center x+
   new THREE.Vector3(1, 0, 0), // 2. speakers x+
   new THREE.Vector3(1, 0, 0), // 3. speaker holder x+
@@ -78,37 +89,35 @@ const partDirections = [
   new THREE.Vector3(-1, 0, 0), // 19. back screws x-
   new THREE.Vector3(0, -1, 0), // 20. bottom screws y-
   new THREE.Vector3(1, 0, 0), // 21. speaker spacers x+
-  new THREE.Vector3(1, 0, 0), // 22. extra part if any x+
-  new THREE.Vector3(0, -1, 0), // 23. extra part if any y-
+  new THREE.Vector3(1, 0, 0), // 22. speaker magnet x+
+  new THREE.Vector3(1, 0, 0), // 23. speaker muffler x+
 ];
 
 // DISTANCES PER PART (in same order as model.children)
 const partDistances = [
-  1, // 1. speaker center
-  1, // 2. speakers
-  1, // 3. speaker holder
-  1, // 4. nobs
-  1, // 5. feet
-  0.1, // 6. bottom bracket 1
-  0.2, // 7. bottom bracket 2
-  1, // 8. nobs spacers
-  1, // 9. bottom panel
-  0.1, // 10. speaker console
-  1, // 11. glass box
-  1, // 12. speaker cords
-  1, // 13. small screw/spacer
-  1, // 14. bottom bracket
-  1, // 15. square spacer
-  1, // 16. black square
-  1, // 17. some spacer
-  1, // 18. black square
-  1, // 19. back screws
-  5, // 20. bottom screws
-  1, // 21. speaker spacers
-
-  //Foreach don't loop more than parts above this line
-  1, // 22. extra part if any
-  1, // 23. extra part if any
+  1.5, // 1. speaker center x+
+  1.3, // 2. speakers x+
+  1, // 3. speaker holder x+
+  1, // 4. nobs x+
+  1, // 5. feet y-
+  0.1, // 6. bottom bracket 1 y-
+  0.2, // 7. bottom bracket 2 y-
+  1, // 8. nobs spacers x+
+  0, // 9. bottom panel (stationary)
+  0.1, // 10. speaker console y+
+  0, // 11. glass box (stationary)
+  0.5, // 12. speaker cords x-
+  0.5, // 13. small screw/spacer z+
+  1, // 14. bottom bracket y-
+  1, // 15. square spacer y-
+  1, // 16. black square x+
+  1, // 17. some spacer y-
+  1, // 18. black square x+
+  1, // 19. back screws x-
+  1, // 20. bottom screws y-
+  1, // 21. speaker spacers x+
+  1, // 22. speaker magnet x+
+  1, // 23. speaker muffler x+
 ];
 
 // Helper function to get all nested parts
@@ -129,20 +138,148 @@ gltfLoader.load(
 
     model = gltf.scene;
 
-    // Model positioning and scaling
-    model.position.set(-7, 0.5, 0.5);
-    model.scale.set(7, 7, 7);
-    model.rotation.set(0, Math.PI * 1.1, 0);
+    // Check materials and colors
+    console.log("Checking materials...");
+    model.traverse((node) => {
+      if (node.isMesh) {
+        const mats = Array.isArray(node.material)
+          ? node.material
+          : [node.material];
+        mats.forEach((mat, idx) => {
+          console.log("Mesh:", node.name, "Material:", mat?.name, {
+            type: mat?.type,
+            hasMap: !!mat?.map,
+            mapUrl: mat?.map?.source?.data?.currentSrc || "embedded",
+            color: mat?.color?.getHexString(),
+            metalness: mat?.metalness,
+            roughness: mat?.roughness,
+          });
+        });
+      }
+    });
+
+    // Model positioning and scaling (adjusted starting position)
+    model.position.set(0, 0, 0);
+    model.scale.set(1, 1, 1);
+    model.rotation.set(0, 0, 0);
 
     scene.add(model);
+
+    // ---- Auto-center camera on the loaded model ----
+    const box = new THREE.Box3().setFromObject(model);
+    const center = new THREE.Vector3();
+    box.getCenter(center);
+
+    controls.target.copy(center);
+
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const fov = THREE.MathUtils.degToRad(camera.fov);
+    const cameraZ = maxDim / Math.tan(fov / 2);
+
+    camera.position.set(
+      center.x + cameraZ * 0.3,
+      center.y + cameraZ * 0.3,
+      center.z + cameraZ * 1.2
+    );
+
+    camera.lookAt(center);
+    controls.update();
 
     // Get all parts (including nested ones)
     allParts = getAllParts(model);
 
-    // Debug: Log all parts
+    // Give each part its own color
+
+    // Alluminium, screws, speaker basket: 555555
+
+    const blackPlastic = 0x3c3c3c;
+    const alluminium = 0x555555;
+    const glass = 0xffffff;
+    const metal = 0x9d9d9d;
+    const rubber = 0x303030;
+    const speakerInside = 0xbcbcbc;
+
+    const partColors = [
+      speakerInside, // 1. speaker center
+      speakerInside, // 2. speakers
+      speakerInside, // 3. speaker holder
+      metal, // 4. nobs
+      blackPlastic, // 5. feet
+      metal, // 6. bottom bracket 1
+      metal, // 7. bottom bracket 2
+      blackPlastic, // 8. nobs spacers
+      metal, // 9. bottom panel
+      metal, // 10. speaker console
+      glass, // 11. glass box
+      speakerInside, // 12. speaker cords
+      metal, // 13. small screw/spacer
+      metal, // 14. bottom bracket
+      metal, // 15. square spacer
+      blackPlastic, // 16. black square
+      metal, // 17. some spacer
+      blackPlastic, // 18. black square
+      metal, // 19. back screws
+      metal, // 20. bottom screws
+      speakerInside, // 21. speaker spacers
+      blackPlastic, // 22. extra part if any
+      blackPlastic, // 23. extra part if any
+    ];
+
+    allParts.forEach((part, i) => {
+      if (part.isMesh && part.material) {
+        // Always clone to make each mesh independent
+        part.material = part.material.clone();
+
+        // Base color
+        part.material.color.set(partColors[i % partColors.length]);
+
+        part.material.needsUpdate = true;
+      }
+    });
+
+    // Fix material and texture handling
+    model.traverse((node) => {
+      if (node.isMesh && node.material) {
+        const materials = Array.isArray(node.material)
+          ? node.material
+          : [node.material];
+        materials.forEach((mat) => {
+          if (!mat) return;
+
+          // Set proper color space for textures
+          if (mat.map) {
+            mat.map.colorSpace = THREE.SRGBColorSpace;
+          }
+
+          // Brighten material if it's too dark
+          if (mat.color) {
+            mat.color.multiplyScalar(1.5);
+          }
+
+          // Improve visibility
+          if (mat.isMeshPhysicalMaterial) {
+            mat.metalness = Math.max(mat.metalness * 0.8, 0);
+            mat.roughness = Math.min(mat.roughness, 0.8);
+            mat.envMapIntensity = 1.2;
+          }
+        });
+      }
+    });
+
+    // Debug: Log all parts and materials
     console.log("Total parts found:", allParts.length);
     allParts.forEach((part, i) => {
       console.log(`Part ${i}:`, part.name, part.type);
+      if (part.isMesh && part.material) {
+        console.log(`  Material:`, {
+          name: part.material.name,
+          type: part.material.type,
+          hasMap: !!part.material.map,
+          color: part.material.color?.getHexString(),
+        });
+      }
     });
 
     // Store original positions & directions for explosion
@@ -181,12 +318,11 @@ function animate() {
   requestAnimationFrame(animate);
   controls.update();
 
-  if (model) {
+  if (model && allParts.length > 0) {
     const speed = 0.0275;
     explodeProgress += exploded ? speed : -speed;
     explodeProgress = THREE.MathUtils.clamp(explodeProgress, 0, 1);
 
-    const allParts = getAllParts(model);
     allParts.forEach((part) => {
       if (part.userData.originalPos) {
         const original = part.userData.originalPos;
