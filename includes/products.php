@@ -22,9 +22,11 @@ require("content.php");
                     <span class="dot"></span>
                 </div>
 
-                <button class="cta-design mobile-cta-design">
-                    <img src="/assets/images/customize_icon.svg" />Designa
-                </button>
+                <a class="cta-design mobile-cta-design" href="#product-customizer">
+                    <span class="material-symbols-outlined">
+                        edit_square
+                    </span>Designa
+                </a>
             </div>
 
             <!-- Desktop gallery (hidden on mobile) -->
@@ -33,19 +35,21 @@ require("content.php");
                 <img src="<?= $product['img-path-active'] ?>" alt="<?= $product['img-alt'] ?>">
                 <img src="<?= $product['img-path_2'] ?>" alt="<?= $product['img-alt_2'] ?>">
             </figure>
-            
+
             <!-- Product Information -->
             <div class="product-info-flex">
                 <div class="product-info">
                     <p><?= $product['type'] ?></p>
                     <h3><?= $product['name'] ?></h3>
                     <p>Från <?= $product['price'] ?> kr</p>
-                    <button class="cta-design desktop-cta-design">
-                        <img src="/assets/images/customize_icon.svg" />Designa
-                    </button>
 
+                    <a class="cta-design desktop-cta-design" href="#product-customizer">
+                        <span class="material-symbols-outlined">
+                            edit_square
+                        </span>Designa
+                    </a>
                 </div>
-                
+
                 <div class="button-position">
                     <button class="cta-button product-button">
                         <span>
