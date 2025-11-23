@@ -9,6 +9,11 @@
   --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
   --desktop-nav-background-color: #b9b9b9;
+
+  --explore-button-bg-color: #616E42;
+  --explore-button-text-color: #FFFEF2;
+
+
   --lyxig-dark-green: #00401a;
   --light-green: #7C985D;
   --forest-green: #616e42;
@@ -22,6 +27,21 @@ body {
   background-color: var(--background-color);
   color: var(--primary-color);
 }
+
+body.no-scroll { 
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Properties for products */
+.customizer-header{
+  padding: 0 1em;
+}
+.customizer-header h2,
+.products h2{
+  font-weight: 600;
+  font-size: 1.7em;
+  letter-spacing: -0.01em;
 #products-section,
 #product-customizer,
 #about-section,
@@ -261,6 +281,10 @@ p.product-season,
   color: var(--primary-color);
 }
 
+.navbar-scrolled img:nth-child(2) {
+  content: url(/assets/images/Kinforma_Logo_Green_K.svg);
+}
+
 nav svg {
   height: 1.2rem;
   width: 1.2rem;
@@ -461,8 +485,6 @@ nav svg {
   border-radius: 100px;
   text-align: center;
 }
-
-
 
 .video-container {
   position: absolute;
