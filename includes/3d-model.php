@@ -14,4 +14,10 @@
     <button class="model-color" data-color="#394384"></button>
     <button class="model-color" data-color="#616E42"></button>
   </div>
+  <button class="cta-button product-button">
+    <span>
+      Utforska
+    </span>
+    <img src="/assets/images/arrow_forward.svg" alt="arrow forward icon" />
+  </button>
 </section>
