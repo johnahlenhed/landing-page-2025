@@ -11,47 +11,49 @@
     </figcaption>
   </figure>
 
-  <!-- Color swatches body-->
-  <div class="color-selectors">
+  <div class="product-info-flex">
 
-    <!-- Body -->
-    <div class="color-group">
-      <button class="color-toggle" aria-expanded="false">
-        <span class="label">Stomme</span>
-        <span class="material-symbols-outlined">keyboard_arrow_down</span>
-      </button>
-
-      <ul class="swatch-list" hidden>
-        <li><button class="swatch" data-color="#d79566" data-part="body"></button></li>
-        <li><button class="swatch" data-color="#3f2b0e" data-part="body"></button></li>
-        <li><button class="swatch" data-color="#000000" data-part="body"></button></li>
-      </ul>
+    <!-- Color swatches body-->
+    <div class="color-selectors">
+  
+      <!-- Body -->
+      <div class="color-group">
+        <button class="color-toggle" aria-expanded="false">
+          <span class="label">Stomme</span>
+          <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </button>
+  
+        <ul class="swatch-list" hidden>
+          <li><button class="swatch" data-color="#d79566" data-part="body"></button></li>
+          <li><button class="swatch" data-color="#3f2b0e" data-part="body"></button></li>
+          <li><button class="swatch" data-color="#000000" data-part="body"></button></li>
+        </ul>
+      </div>
+  
+      <!-- Seat-->
+      <div class="color-group">
+        <button class="color-toggle" aria-expanded="false">
+          <span class="label">Sittdel</span>
+          <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </button>
+  
+        <ul class="swatch-list" hidden>
+          <li><button class="swatch" data-color="#513029" data-part="seat"></button></li>
+          <li><button class="swatch" data-color="#616e42" data-part="seat"></button></li>
+          <li><button class="swatch" data-color="#fffaee" data-part="seat"></button></li>
+          <li><button class="swatch" data-color="#000000" data-part="seat"></button></li>
+          <li><button class="swatch" data-color="#1c3064" data-part="seat"></button></li>
+          <li><button class="swatch" data-color="#b0b0b0" data-part="seat"></button></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Seat-->
-    <div class="color-group">
-      <button class="color-toggle" aria-expanded="false">
-        <span class="label">Sittdel</span>
-        <span class="material-symbols-outlined">keyboard_arrow_down</span>
-      </button>
-
-      <ul class="swatch-list" hidden>
-        <li><button class="swatch" data-color="#513029" data-part="seat"></button></li>
-        <li><button class="swatch" data-color="#616e42" data-part="seat"></button></li>
-        <li><button class="swatch" data-color="#fffaee" data-part="seat"></button></li>
-        <li><button class="swatch" data-color="#000000" data-part="seat"></button></li>
-        <li><button class="swatch" data-color="#1c3064" data-part="seat"></button></li>
-        <li><button class="swatch" data-color="#b0b0b0" data-part="seat"></button></li>
-      </ul>
-    </div>
-
+  
+    <!-- CTA button -->
+    <button class="cta-button product-button">
+      Utforska
+      <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
+    </button>
   </div>
-
-  <!-- CTA button -->
-  <button class="cta-button product-button">
-    Utforska
-    <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
-  </button>
 </section>
 
 <script>
