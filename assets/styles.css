@@ -161,19 +161,51 @@ p.product-season {
   height: 20em;
   margin: 0;
 }
-.model-color {
-  background-color: #a89c7b;
-  aspect-ratio: 1 / 1;
-  width: 3em;
+.color-selectors {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.color-toggle {
+  background: none;
   border: none;
-  border-radius: 0%;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Arrow animation */
+.color-toggle .material-symbols-outlined {
+  transition: transform 0.25s ease;
+}
+.color-toggle[aria-expanded="true"] .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+.swatch-list {
+  list-style: none;
   padding: 0;
+  margin: .5rem 0 0 0;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+/* Hidden list before toggle */
+.swatch-list[hidden] {
+  display: none !important;
+}
+.swatch {
+  width: 2em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0.2em 0.2em 0.2em -0.2em inset, 
+              rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset;
 }
 .navbar-desktop {
   display: none;
 }
-
-/* End of properties for 3d model */
 .navbar {
   background-color: var(--navbar-top-scroll-color);
   color: white;
@@ -190,7 +222,6 @@ p.product-season {
   top: 0;
   transition: background-color 0.8s ease;
 }
-
 .navbar h1 {
   margin: 0;
 }
@@ -353,6 +384,7 @@ nav svg {
   font-weight: 900;
   color: var(--lyxig-dark-green);
 }
+
 .fishnet-bg h4 {
   font-size: 1.5em;
   margin: 1em 0;
