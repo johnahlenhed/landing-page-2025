@@ -2,21 +2,23 @@
 require("content.php");
 ?>
 <section id="products-section">
-    <header class="product-info-flex">
+    <header class="product-header">
         <div class="products-intro">
             <p class="product-season">Höst 2025</p>
             <h2>Marstrand</h2>
             <p>Upptäck vår senaste kollektion av 3D–printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
         </div>
-        <button class="cta-button product-button button-disabled">
-            Utforska kollektion
-            <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
-        </button>
+        <div>
+            <button class="cta-button product-button">
+                Utforska kollektion
+                <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
+            </button>
+        </div>
     </header>
     <?php foreach ($products as $product) : ?>
         <article class="product-card">
 
-            <!-- MOBILE FIRST: SLIDER -->
+            <!-- Mobile slider -->
             <div class="product-gallery mobile-slider">
                 <div class="slider-track">
                     <img src="<?= $product['img-path-active'] ?>" alt="<?= $product['img-alt'] ?>">
