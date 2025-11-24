@@ -1,4 +1,3 @@
-
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -7,6 +6,15 @@ import { HDRLoader } from "three/addons/loaders/HDRLoader.js";
 let model;
 let explodeProgress = 0;
 let allParts = [];
+
+
+let cameraStartPos = new THREE.Vector3();
+let cameraZoomIN = 0.65; // Adjust this to control zoom distance (1 = no zoom, 0.5 = half distance)
+
+// Rotation, tilt and pan settings
+let cameraRotationAmount = Math.PI * 0.5; // Full rotation (2π radians)
+let cameraPanAmount = new THREE.Vector3(0, -0.1, 0); // Pan upward
+let cameraTiltAmount = new THREE.Vector3(0, -5, 0); // Tilt amount (adjust as needed)
 
 // ---- Container for the 3d model
 const container = document.getElementById("speaker-3d");
@@ -24,6 +32,18 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 
 container.appendChild(renderer.domElement);
+
+// Handle window resize
+function onWindowResize() {
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+}
+
+window.addEventListener('resize', onWindowResize);
 
 // Scene + Camera
 const scene = new THREE.Scene();
@@ -93,7 +113,8 @@ const partDirections = [
 
 // DISTANCES PER PART
 const partDistances = [
-  0.6, 0.8, 0.4, 0.3, 0.6, 0.5, 0.3, 0.2, 0, 0, 0, 0, 0.5, 0.2, 1, 0, 1, 0.3, 0.3, 0.6, 0.3, 0.75, 1,
+  0.6, 0.8, 0.4, 0.3, 0.6, 0.5, 0.3, 0.2, 0, 0, 0, 0, 0.5, 0.2, 1, 0, 1, 0.3,
+  0.3, 0.6, 0.3, 0.75, 1,
 ];
 
 // Helper function to get all nested parts
@@ -141,6 +162,11 @@ gltfLoader.load(
     camera.lookAt(center);
     controls.update();
 
+    camera.lookAt(center);
+    controls.update();
+
+    cameraStartPos.copy(camera.position);
+
     // Get all parts
     allParts = getAllParts(model);
 
@@ -151,9 +177,29 @@ gltfLoader.load(
     const speakerInside = 0xbcbcbc;
 
     const partColors = [
-      speakerInside, speakerInside, speakerInside, metal, blackPlastic, metal, metal, blackPlastic,
-      metal, metal, glass, speakerInside, metal, metal, metal, blackPlastic, metal, blackPlastic,
-      metal, metal, speakerInside, blackPlastic, blackPlastic,
+      speakerInside,
+      speakerInside,
+      speakerInside,
+      metal,
+      blackPlastic,
+      metal,
+      metal,
+      blackPlastic,
+      metal,
+      metal,
+      glass,
+      speakerInside,
+      metal,
+      metal,
+      metal,
+      blackPlastic,
+      metal,
+      blackPlastic,
+      metal,
+      metal,
+      speakerInside,
+      blackPlastic,
+      blackPlastic,
     ];
 
     // Apply colors
@@ -168,7 +214,9 @@ gltfLoader.load(
     // Fix material and texture handling
     model.traverse((node) => {
       if (node.isMesh && node.material) {
-        const materials = Array.isArray(node.material) ? node.material : [node.material];
+        const materials = Array.isArray(node.material)
+          ? node.material
+          : [node.material];
         materials.forEach((mat) => {
           if (!mat) return;
 
@@ -200,7 +248,10 @@ gltfLoader.load(
     console.log("Model loaded with", allParts.length, "parts");
   },
   (progress) => {
-    console.log("Loading progress:", ((progress.loaded / progress.total) * 100).toFixed(2) + "%");
+    console.log(
+      "Loading progress:",
+      ((progress.loaded / progress.total) * 100).toFixed(2) + "%"
+    );
   },
   (error) => {
     console.error("GLTF load error:", error);
@@ -223,6 +274,7 @@ function animate() {
   controls.update();
 
   if (model && allParts.length > 0) {
+    // Update parts as before
     allParts.forEach((part) => {
       if (part.userData.originalPos) {
         const original = part.userData.originalPos;
@@ -233,6 +285,36 @@ function animate() {
         part.position.lerpVectors(original, target, explodeProgress);
       }
     });
+
+    // Calculate rotated camera position
+    const angle = cameraRotationAmount * explodeProgress;
+    const cosAngle = Math.cos(angle);
+    const sinAngle = Math.sin(angle);
+    
+    // Rotate the starting position around the Y axis
+    const rotatedPos = new THREE.Vector3(
+      cameraStartPos.x * cosAngle - cameraStartPos.z * sinAngle,
+      cameraStartPos.y,
+      cameraStartPos.x * sinAngle + cameraStartPos.z * cosAngle
+    );
+
+    // Apply zoom
+    const zoomFactor = THREE.MathUtils.lerp(1, cameraZoomIN, explodeProgress);
+    rotatedPos.multiplyScalar(zoomFactor);
+
+    // Apply pan
+    const panCurrent = cameraPanAmount.clone().multiplyScalar(explodeProgress);
+    rotatedPos.add(panCurrent);
+
+    camera.position.copy(rotatedPos);
+
+    // Apply tilt
+    const tiltCurrent = cameraTiltAmount.clone().multiplyScalar(explodeProgress);
+    camera.position.add(tiltCurrent);
+    
+    // Update look-at target to follow the pan
+    const targetPos = controls.target.clone().add(panCurrent);
+    camera.lookAt(targetPos);
   }
 
   renderer.render(scene, camera);

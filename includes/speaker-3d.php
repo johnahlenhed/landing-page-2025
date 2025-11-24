@@ -1,7 +1,7 @@
 <section class="speaker-section">
     <div id="speaker-3d"></div>
 
-    <!--
+    <!-- Keep for testing
     <button id="explode-button">Explode!</button>
     -->
     
