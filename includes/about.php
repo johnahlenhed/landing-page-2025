@@ -1,5 +1,7 @@
 <section id="about-section">
-    <h2>Om oss</h2>
+    <div class="about-header">
+        <h2>Om oss</h2>
+    </div>
     <div class="about-container">
         <article class="fishnet-bg">
             <h4>Framtidens design,<br>
