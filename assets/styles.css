@@ -4,19 +4,18 @@
   --primary-color: #000000;
   --secondary-color: #c3b89a;
   --menu-bg-color: #ffffff;
-  --menu-text-color: #00401A;
+  --menu-text-color: #00401a;
   --navbar-top-scroll-color: rgba(255, 255, 255, 0);
   --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
   --desktop-nav-background-color: #b9b9b9;
   --slider-thumb-color: #00401a;
 
-  --explore-button-bg-color: #616E42;
-  --explore-button-text-color: #FFFEF2;
-
+  --explore-button-bg-color: #616e42;
+  --explore-button-text-color: #fffef2;
 
   --lyxig-dark-green: #00401a;
-  --light-green: #7C985D;
+  --light-green: #7c985d;
   --forest-green: #616e42;
   --medium-grey: #45494f;
 }
@@ -29,20 +28,20 @@ body {
   color: var(--primary-color);
 }
 
-body.no-scroll { 
+body.no-scroll {
   height: 100vh;
   overflow: hidden;
 }
 
 /* Properties for products */
-.product-header{
+.product-header {
   margin-bottom: 2.5em;
 }
-.customizer-header{
+.customizer-header {
   padding: 0 1em;
 }
 .customizer-header h2,
-.products h2{
+.products h2 {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
@@ -55,9 +54,8 @@ body.no-scroll {
 #footer-section,
 .product-button,
 .cta-button,
-.cta-button{
+.cta-button {
   font-family: "IBM Plex Sans";
- 
 }
 .customizer-header p,
 .products-intro p,
@@ -70,30 +68,35 @@ body.no-scroll {
 .product-header,
 .cta-wrapper,
 .model-flex,
-.about-header{
+.about-header {
   margin: 0.5em;
   padding: 0.5em;
 }
-.product-info-flex{
+.product-info-flex {
   margin-bottom: 4.4em;
 }
-section{
+section {
   margin: 3.5em 0;
 }
 p.product-season,
 .cta-design,
 .color-toggle span,
-h1, h2, h3, h4, h5, h6,
-.cta-button{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.cta-button {
   text-transform: uppercase;
 }
 /* Products */
-.product-header{
+.product-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.header-flex{
+.header-flex {
   display: flex;
   justify-content: center;
 }
@@ -114,18 +117,18 @@ p.product-season,
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: 40% 50%; 
+  object-position: 40% 50%;
 }
 .product-info-flex,
 .model-flex,
-.product-header{
+.product-header {
   display: flex;
   justify-content: space-between;
 }
-.model-flex{
+.model-flex {
   margin-top: 1em;
 }
-.product-info-flex{
+.product-info-flex {
   align-items: center;
 }
 .product-info p,
@@ -189,22 +192,22 @@ p.product-season,
   cursor: pointer;
   transition: background-color 0.25s linear, color 0.25s linear;
 }
-.cta-design:hover{
+.cta-design:hover {
   background-color: var(--light-green);
   color: #fff;
   border-color: var(--light-green);
 }
-.cta-design span{
+.cta-design span {
   /* Icon size */
   font-size: 1.4em;
 }
-.mobile-cta-design{
+.mobile-cta-design {
   position: absolute;
   top: 1em;
   left: 1em;
   display: inline-flex;
 }
-.desktop-cta-design{
+.desktop-cta-design {
   display: none;
 }
 /* https://www.a11y-collective.com/blog/visually-hidden/ 
@@ -225,7 +228,7 @@ p.product-season,
   height: 20em;
   margin: 0;
 }
-.color-selectors{
+.color-selectors {
   display: flex;
 }
 .color-toggle {
@@ -253,8 +256,8 @@ p.product-season,
   flex-wrap: wrap;
   position: absolute;
 }
-.color-toggle span{
-  color: var(--lyxig-dark-green)
+.color-toggle span {
+  color: var(--lyxig-dark-green);
 }
 /* Hidden list before toggle */
 .swatch-list[hidden] {
@@ -266,13 +269,14 @@ p.product-season,
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset, 
-              rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset;
+  box-shadow: rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset,
+    rgba(0, 0, 0, 0.3) 0.2em 0.2em 0.2em -0.2em inset;
 }
 
 .navbar-desktop {
   display: none;
 }
+
 .navbar {
   background-color: var(--navbar-top-scroll-color);
   color: var(--menu-text-color);
@@ -297,7 +301,8 @@ p.product-season,
 
 .navbar img:nth-child(2) {
   height: auto;
-  width: 2rem;
+  width: 2.5rem;
+  margin-top: 4px;
 }
 
 .navbar-scrolled {
@@ -308,12 +313,12 @@ p.product-season,
 .navbar-scrolled img:nth-child(2) {
   content: url(/assets/images/Kinforma_Logo_Green_K.svg);
   height: auto;
-  width: 2rem;
+  width: 2.5rem;
 }
 
 nav svg {
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .mobile-menu {
@@ -322,7 +327,7 @@ nav svg {
 
 .mobile-menu.active {
   display: block;
-  position: absolute;
+  position: fixed;
   background-color: var(--menu-bg-color);
   color: var(--menu-text-color);
   width: 100%;
@@ -426,7 +431,6 @@ nav svg {
 
 .mobile-menu-footer {
   position: absolute;
-  bottom: -250px;
   width: 100%;
   height: auto;
 }
@@ -439,7 +443,7 @@ nav svg {
 
 .cart-menu {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: var(--menu-bg-color);
   width: 100%;
   height: 30%;
@@ -525,7 +529,7 @@ nav svg {
 
 .video-container video {
   position: absolute;
-  top: 50%;
+  top: 49.99%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -544,18 +548,18 @@ nav svg {
   z-index: 1;
 }
 
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   margin: 5rem;
   width: 80%;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 80%;
   height: 8.4px;
   cursor: pointer;
@@ -565,7 +569,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0.2px solid #010101;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
@@ -577,11 +581,11 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -14px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: var(--light-green);
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 80%;
   height: 8.4px;
   cursor: pointer;
@@ -591,7 +595,7 @@ input[type=range]::-moz-range-track {
   border: 0.2px solid #010101;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
@@ -601,7 +605,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 80%;
   height: 8.4px;
   cursor: pointer;
@@ -611,21 +615,21 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-input[type=range]::-ms-fill-lower {
+input[type="range"]::-ms-fill-lower {
   background: var(--light-green);
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
-input[type=range]::-ms-fill-upper {
+input[type="range"]::-ms-fill-upper {
   background: var(--light-green);
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
@@ -635,11 +639,11 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
 }
 
-input[type=range]:focus::-ms-fill-lower {
+input[type="range"]:focus::-ms-fill-lower {
   background: var(--light-green);
 }
 
-input[type=range]:focus::-ms-fill-upper {
+input[type="range"]:focus::-ms-fill-upper {
   background: var(--light-green);
 }
 
@@ -716,11 +720,11 @@ input[type=range]:focus::-ms-fill-upper {
 /*  Buttons hover  */
 
 .cta-button,
-.product-button{
+.product-button {
   transition: background-color 0.35s ease;
 }
 .cta-button:hover,
-.product-button:hover{
+.product-button:hover {
   background-color: var(--light-green);
 }
 #about-section h2,
@@ -754,7 +758,7 @@ input[type=range]:focus::-ms-fill-upper {
   align-self: center;
   margin-top: auto;
 }
-.cta-wrapper .cta-button{
+.cta-wrapper .cta-button {
   margin-top: 3em;
 }
 .cta-wrapper {
@@ -874,13 +878,19 @@ footer {
   height: 10em;
   position: relative;
 }
-.button-disabled{
+.button-disabled {
   display: none;
 }
 /* Desktop styles */
 
+/*
+.menu-backdrop {
+  display: none;
+}
+*/
+
 @media screen and (min-width: 768px) {
-  .button-disabled{
+  .button-disabled {
     display: flex;
   }
   .navbar {
@@ -905,12 +915,16 @@ footer {
 
   .navbar-items-desktop {
     display: flex;
-    gap: 15rem;
     justify-content: space-evenly;
     align-items: center;
+    gap: 4rem;
     width: 100%;
     height: auto;
     padding-bottom: 8px;
+  }
+
+  .navbar-menu-icon-desktop {
+    cursor: pointer;
   }
 
   .navbar-items-desktop img:nth-child(1) {
@@ -962,7 +976,7 @@ footer {
   .navbar-desktop-scrolled img:nth-child(2) {
     height: 4rem;
     width: auto;
-    content: url(/assets/images/kinforma-logo-dark.png);
+    content: url(/assets/images/Kinforma_Logo_Green_FULL.svg);
   }
 
   .navbar-desktop-scrolled svg {
@@ -975,6 +989,56 @@ footer {
     color: var(--primary-color);
   }
 
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu.active {
+    display: block;
+    position: fixed;
+    background-color: var(--menu-bg-color);
+    color: var(--menu-text-color);
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 9999;
+  }
+
+  .menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* shadow */
+    z-index: 9990; /* just under the menu */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .menu-backdrop.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .cart-menu {
+    display: none;
+  }
+
+  .cart-menu.active {
+    width: 30%;
+    height: 100%;
+    left: auto;
+    right: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+  }
+
   .hero-overlay {
     height: 95vh; /* Slightly shorter on desktop */
   }
@@ -983,8 +1047,8 @@ footer {
     height: 80vh;
   }
   /* Desktop product section */
-  .product-button>span::after{
-    content:"produkt";
+  .product-button > span::after {
+    content: "produkt";
   }
   .mobile-slider {
     display: none;
@@ -998,17 +1062,17 @@ footer {
     width: 100%;
     object-fit: cover;
   }
-  .mobile-cta-design{
-  display: none;
+  .mobile-cta-design {
+    display: none;
   }
-  .desktop-cta-design{
-  display: inline-flex;
-  position: relative;
-  top: 0;
-  left: 0;
-  margin-top: 0.5em;
+  .desktop-cta-design {
+    display: inline-flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 0.5em;
   }
-  .product-header{
+  .product-header {
     flex-direction: row;
     gap: 2.5em;
     align-items: center;
@@ -1048,7 +1112,7 @@ footer {
   .cta-wrapper p {
     font-size: 1em;
   }
-  .cta-wrapper{
+  .cta-wrapper {
     padding: 0.5em 10em;
   }
   .cta-button {
