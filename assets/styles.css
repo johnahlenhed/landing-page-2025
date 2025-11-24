@@ -9,6 +9,7 @@
   --accent-color: #616e42;
   --form-input-color: rgba(131, 131, 131, 0.7);
   --desktop-nav-background-color: #b9b9b9;
+  --slider-thumb-color: #00401a;
 
   --explore-button-bg-color: #616E42;
   --explore-button-text-color: #FFFEF2;
@@ -543,16 +544,141 @@ nav svg {
   z-index: 1;
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 5rem;
+  width: 80%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 80%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--light-green);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--light-green);
+}
+
+input[type=range]::-moz-range-track {
+  width: 80%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--light-green);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 80%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: var(--light-green);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: var(--light-green);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--light-green);
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--light-green);
+}
+
 .speaker-section {
   background-color: var(--background-color);
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  touch-action: pan-y;
 }
 
 #speaker-3d {
   width: 100%;
-  height: 500px;
+  height: 85vh;
+  flex-grow: 1;
+  pointer-events: none;
+  overflow: hidden;
 }
 
+#speaker-3d canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#explode-slider {
+  width: 65%;
+  margin: 1rem auto;
+  display: block;
+  padding: 1rem;
+  flex-shrink: 0;
+  height: auto;
+}
+
+/*
+
+// Keep for testing
 #explode-button {
   display: flex;
   justify-content: center;
@@ -560,6 +686,7 @@ nav svg {
   width: 200px;
   height: 50px;
 }
+*/
 
 .about-section {
   padding: 1rem;
