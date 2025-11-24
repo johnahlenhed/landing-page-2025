@@ -2,109 +2,152 @@ import * as THREE from "three";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FXAAPass } from "three/addons/postprocessing/FXAAPass.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 
 // ---- Container for the 3d model
 const container = document.getElementById("model-container");
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({
+  powerPreference: "high-performance",
+  antialias: true,
+});
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setClearColor(0xd8d8d8);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+renderer.physicallyCorrectLights = true;
 container.appendChild(renderer.domElement);
 
-// ---- Scene and camera options
+// ---- Some recommended anti-aliasing thing
+const composer = new EffectComposer(renderer);
+composer.addPass(new FXAAPass());
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
+  25,
   container.clientWidth / container.clientHeight,
   1,
-  1000
+  500
 );
-camera.position.set(0, 3, 12);
-camera.lookAt(0, 0, 0);
+camera.position.set(0, 2, 30);
 
+// ---- Camera controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 9;
-controls.maxDistance = 15;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 1.5;
-controls.autoRotate = false;
+controls.minDistance = 3;
+controls.maxDistance = 45;
 controls.target.set(0, 1, 0);
-controls.update();
 
-// ---- Lights for the scene
-scene.add(new THREE.HemisphereLight(0xffffff, 0x333333, 0.2));
-scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+// ---- Light settings
+scene.add(new THREE.AmbientLight(0xffffff, 0.4));
 
-const key = new THREE.DirectionalLight(0xffffff, 0.2);
-key.position.set(5, 5, 5);
-scene.add(key);
+const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
+keyLight.position.set(5, 8, 5);
+scene.add(keyLight);
 
-const rim = new THREE.DirectionalLight(0xffffff, 0.2);
-rim.position.set(-5, 3, -5);
-scene.add(rim);
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+fillLight.position.set(-5, 4, 3);
+scene.add(fillLight);
 
+const rimLight = new THREE.DirectionalLight(0xffffff, 0.9);
+rimLight.position.set(-3, 5, -5);
+scene.add(rimLight);
+
+// ---- Material references
 const textureLoader = new THREE.TextureLoader();
 
-// ---- Variables for different parts of the model
-let seatMaterial, ryggMaterial, benMaterial;
-
-const mtlLoader = new MTLLoader();
-mtlLoader.setPath("../assets/3d-model/");
-mtlLoader.load("stol_preview_texturtest1.mtl", (materials) => {
-  materials.preload();
-
-  const objLoader = new OBJLoader();
-  // objLoader.setMaterials(materials);
-  objLoader.setPath("../assets/3d-model/");
-  objLoader.load("stol_preview_texturtest1.obj", (object) => {
-    object.position.set(0, -4, 0);
-    object.rotation.y = Math.PI / -1.5;
-
-    object.traverse((child) => {
-      if (child.isMesh && child.material) {
-        const name = child.name.toLowerCase();
-        if (name.includes("seat")) seatMaterial = child.material;
-        if (name.includes("rygg")) ryggMaterial = child.material;
-        if (name.includes("ben")) benMaterial = child.material;
-      }
-    });
-
-    scene.add(object);
-    swapTexture();
+const createMaterial = (part) =>
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Base_color.jpg`
+    ),
+    normalMap: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Normal.jpg`
+    ),
+    roughnessMap: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Roughness.jpg`
+    ),
+    metalnessMap: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Metallic.jpg`
+    ),
+    bumpMap: textureLoader.load(
+      `../assets/3d-model/texturer_test1/${part}_Height.jpg`
+    ),
+    roughness: 1.0,
+    metalness: 0.8,
   });
+
+// ---- Material objects
+const materials = {
+  seat: null,
+  rygg: null,
+  ben: null,
+};
+
+// ---- Loading model with textures
+const objLoader = new OBJLoader();
+objLoader.setPath("../assets/3d-model/");
+
+objLoader.load("stol_preview_texturtest1.obj", (object) => {
+  object.position.set(0, -6, 0);
+  object.rotation.y = -Math.PI / 1.5;
+
+  object.traverse((child) => {
+    if (!child.isMesh) return;
+
+    const name = child.name.toLowerCase();
+
+    if (name.includes("seat")) {
+      materials.seat = createMaterial("seat");
+      child.material = materials.seat;
+    }
+
+    if (name.includes("rygg")) {
+      materials.rygg = createMaterial("rygg");
+      child.material = materials.rygg;
+    }
+
+    if (name.includes("ben")) {
+      materials.ben = createMaterial("ben");
+      child.material = materials.ben;
+    }
+  });
+
+  scene.add(object);
 });
 
-// ---- Functionality for the buttons
-function swapTexture() {
-  document.querySelectorAll(".part-textures button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const part = btn.getAttribute("data-part");
-      const textureFile = btn.getAttribute("data-texture");
-      applyTexture(part, textureFile);
-    });
+// ---- Apply color tint to materials
+function applyColor(parts, hexColor) {
+  parts.forEach((part) => {
+    const mat = materials[part];
+    if (!mat) return;
+
+    mat.color = new THREE.Color(hexColor);
+    mat.needsUpdate = true;
   });
 }
 
-// ---- Swap texture for a specific part
-function applyTexture(part, textureFile) {
-  const texture = textureLoader.load("../assets/3d-model/texturer_test1/" + textureFile);
-  console.log(texture);
-  let material;
-  if (part === "seat") material = seatMaterial;
-  if (part === "rygg") material = ryggMaterial;
-  if (part === "ben") material = benMaterial;
+// ---- Applies color to model depending on the value
+document.querySelectorAll("#color-options button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const hex = btn.getAttribute("data-color");
+    applyColor(["seat", "rygg"], hex);
+  });
+});
+// ---- Changes the color of the button to the same color as given value
+document.querySelectorAll(".swatch").forEach((btn) => {
+  const color = btn.getAttribute("data-color");
+  btn.style.backgroundColor = color;
+});
 
-  if (material) {
-    material.color = 0x000000;
-    material.map = texture;
-    material.needsUpdate = true;
-  }
-}
-
-// ---- Render loop
+// -------------------------------------------------------------
+// Render loop
+// -------------------------------------------------------------
 function renderScene() {
   requestAnimationFrame(renderScene);
   controls.update();
@@ -112,7 +155,7 @@ function renderScene() {
 }
 renderScene();
 
-// ---- Dynamic resizing
+// Dynamic resizing
 window.addEventListener("resize", () => {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();

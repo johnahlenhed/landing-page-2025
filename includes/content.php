@@ -1,18 +1,43 @@
 <?php
 $products = [
     [
-        'name' => 'fåtölj',
-        'img-path' => '../assets/images/chair_preview.png',
-        'img-alt' => 'fåtölj'
+        'type' => 'Fåtölj',
+        'name' => 'Carlsten',
+        'price' => '2 500',
+        'img-path-active' => '../assets/images/chair_preview.png',
+        'img-alt' => 'Fåtöljmodell Carlsten',
+        'img-path_2' => '../assets/images/chair_preview_2.png',
+        'img-alt_2' => '',
+        'figcaption' => 'Bilder av fåtöljen Carlsten',
     ],
     [
-        'name' => 'doftpinne',
-        'img-path' => '../assets/images/doftpinnar_preview.png',
-        'img-alt' => 'doftpinne'
+        'type' => 'Doftpinnar',
+        'name' => 'Rökan',
+        'price' => '350',
+        'img-path-active' => '../assets/images/doftpinnar_preview.png',
+        'img-alt' => 'Doftpinnar Rökan',
+        'img-path_2' => '../assets/images/doftpinnar_preview_2.png',
+        'img-alt_2' => '',
+        'figcaption' => 'Bilder av doftpinnar Rökan',
     ],
     [
-        'name' => 'flaska',
-        'img-path' => '../assets/images/flaska_preview.png',
-        'img-alt' => 'flaska'
+        'type' => 'Vattenflaska',
+        'name' => 'Sund',
+        'price' => '250',
+        'img-path-active' => '../assets/images/flaska_preview.png',
+        'img-alt' => 'Vattenflaska Sund',
+        'img-path_2' => '../assets/images/flaska_preview_2.png',
+        'img-alt_2' => '',
+        'figcaption' => 'Bilder av vattenflaskan Sund',
+    ],
+    [
+        'type' => 'Högtalare',
+        'name' => 'Socitet',
+        'price' => '3 000',
+        'img-path-active' => '../assets/images/hogtalare.png',
+        'img-alt' => 'Högtalare Socitet',
+        'img-path_2' => '../assets/images/hogtalare_2.png',
+        'img-alt_2' => '',
+        'figcaption' => 'Bilder av högtalaren Socitet',
     ]
-    ];
+];
