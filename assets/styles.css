@@ -186,9 +186,7 @@ p.product-season,
   font-weight: 600;
   border: 1px solid var(--lyxig-dark-green);
   cursor: pointer;
-  transition: background-color 0.35s ease;
-  transition: color 0.35s ease;
-
+  transition: background-color 0.25s linear, color 0.25s linear;
 }
 .cta-design:hover{
   background-color: var(--light-green);
