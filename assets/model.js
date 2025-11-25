@@ -35,10 +35,9 @@ camera.position.set(6, 3, 10);
 
 // ---- Camera controls
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 3;
-controls.maxDistance = 45;
 controls.target.set(0, 1, 0);
 
 // ---- Light settings
