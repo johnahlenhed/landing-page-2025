@@ -6,7 +6,7 @@ require("content.php");
         <div class="products-intro">
             <p class="product-season">Höst 2026</p>
             <h2>Marstrand</h2>
-            <p>Upptäck vår senaste kollektion av 3D–printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
+            <p>Upptäck vår senaste kollektion av 3D-printade möbler. Tillverkade i Göteborg av återvunnet fiskenät från Marstrand.</p>
         </div>
         <div>
             <button class="cta-button product-button">
