@@ -155,7 +155,7 @@ gltfLoader.load(
     camera.position.set(
       center.x + cameraZ * 0.1,
       center.y + cameraZ * 0.1,
-      center.z + cameraZ * 0.9
+      center.z + cameraZ * 1.5
     );
 
     camera.lookAt(center);
@@ -244,7 +244,7 @@ gltfLoader.load(
       part.userData.distance = partDistances[i] || 0;
     });
 
-    console.log("Model loaded with", allParts.length, "parts");
+    
   },
   (progress) => {
     console.log(
