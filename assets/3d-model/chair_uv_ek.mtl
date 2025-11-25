@@ -1,0 +1,35 @@
+# Blender 4.5.3 LTS MTL File: 'chair_uv_ek.blend'
+# www.blender.org
+
+newmtl kudde
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd kudde beige/kudde_Base_color.png
+map_Ns kudde beige/kudde_Roughness.png
+map_refl kudde beige/kudde_Metallic.png
+
+newmtl seat
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd ekträ/seat_Base_color.png
+map_Ns ekträ/seat_Roughness.png
+map_refl ekträ/seat_Metallic.png
+
+newmtl sidor
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd ekträ/sidor_Base_color.png
+map_Ns ekträ/sidor_Roughness.png
+map_refl ekträ/sidor_Metallic.png

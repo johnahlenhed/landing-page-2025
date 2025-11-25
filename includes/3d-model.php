@@ -24,9 +24,9 @@
         </button>
   
         <ul class="swatch-list" hidden>
-          <li><button class="swatch" data-color="#d79566" data-part="body"></button></li>
-          <li><button class="swatch" data-color="#3f2b0e" data-part="body"></button></li>
-          <li><button class="swatch" data-color="#000000" data-part="body"></button></li>
+          <li><button class="swatch" button-color="#d79566" data-color="ek" data-part="chair" data-mesh="seat,sidor"></button></li>
+          <li><button class="swatch" button-color="#3f2b0e" data-color="brun" data-part="chair" data-mesh="seat,sidor"></button></li>
+          <li><button class="swatch" button-color="#000000" data-color="svart" data-part="chair" data-mesh="seat,sidor"></button></li>
         </ul>
       </div>
   
@@ -38,12 +38,12 @@
         </button>
   
         <ul class="swatch-list" hidden>
-          <li><button class="swatch" data-color="#513029" data-part="seat"></button></li>
-          <li><button class="swatch" data-color="#616e42" data-part="seat"></button></li>
-          <li><button class="swatch" data-color="#fffaee" data-part="seat"></button></li>
-          <li><button class="swatch" data-color="#000000" data-part="seat"></button></li>
-          <li><button class="swatch" data-color="#1c3064" data-part="seat"></button></li>
-          <li><button class="swatch" data-color="#b0b0b0" data-part="seat"></button></li>
+          <li><button class="swatch" button-color="#513029" data-color="brun" data-part="kudde" data-mesh="kudde"></button></li>
+          <li><button class="swatch" button-color="#616e42" data-color="green" data-part="kudde" data-mesh="kudde"></button></li>
+          <li><button class="swatch" button-color="#fffaee" data-color="beige" data-part="kudde" data-mesh="kudde"></button></li>
+          <li><button class="swatch" button-color="#000000" data-color="svart" data-part="kudde" data-mesh="kudde"></button></li>
+          <li><button class="swatch" button-color="#1c3064" data-color="blue" data-part="kudde" data-mesh="kudde"></button></li>
+          <li><button class="swatch" button-color="#b0b0b0" data-color="grey" data-part="kudde" data-mesh="kudde"></button></li>
         </ul>
       </div>
     </div>

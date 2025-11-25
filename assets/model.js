@@ -85,15 +85,15 @@ const createMaterial = (part) =>
 // ---- Material objects
 const materials = {
   seat: null,
-  rygg: null,
-  ben: null,
+  sidor: null,
+  kudde: null,
 };
 
 // ---- Loading model with textures
 const objLoader = new OBJLoader();
 objLoader.setPath("../assets/3d-model/");
 
-objLoader.load("stol_preview_texturtest1.obj", (object) => {
+objLoader.load("chair_uv_ek.obj", (object) => {
   object.position.set(0, -6, 0);
   object.rotation.y = -Math.PI / 1.5;
 
@@ -107,14 +107,14 @@ objLoader.load("stol_preview_texturtest1.obj", (object) => {
       child.material = materials.seat;
     }
 
-    if (name.includes("rygg")) {
-      materials.rygg = createMaterial("rygg");
-      child.material = materials.rygg;
+    if (name.includes("sidor")) {
+      materials.sidor = createMaterial("sidor");
+      child.material = materials.sidor;
     }
 
-    if (name.includes("ben")) {
-      materials.ben = createMaterial("ben");
-      child.material = materials.ben;
+    if (name.includes("kudde")) {
+      materials.kudde = createMaterial("kudde");
+      child.material = materials.kudde;
     }
   });
 
