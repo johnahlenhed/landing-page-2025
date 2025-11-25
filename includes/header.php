@@ -83,19 +83,12 @@
 
         <div class="menu-link-container">
             <ul>
-                <li><a>Kollektion</a></li>
-                <li><a>Om oss</a></li>
-                <li><a>FAQ</a></li>
-                <li><a>Kontakt</a></li>
-                <li><a>Hållbarhet</a></li>
+                <li><a href="#products-section">Kollektion</a></li>
+                <li><a href="#about-section">Om oss</a></li>
+                <li><a href="#about-section">FAQ</a></li>
+                <li><a href="#about-section">Kontakt</a></li>
+                <li><a href="#about-section">Hållbarhet</a></li>
             </ul>
-        </div>
-
-        <div class="menu-user-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-            </svg>
-            <p><b><a>Logga in</a></b></p>
         </div>
 
         <div class="some-icons-menu">
@@ -107,6 +100,13 @@
 
         <div class="mobile-menu-footer">
             <img src="/assets/images/footer_final3.png" alt="Kulle image">
+        </div>
+
+        <div class="menu-user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+            <p><b><a>Logga in</a></b></p>
         </div>
 
     </menu>
@@ -129,7 +129,7 @@
         <div class="cart-menu-content">
             <p>Din kundvagn är tom</p>
 
-            <button class="explore-button">Utforska kollektionen</button>
+            <button class="explore-button"><a href="#products-section">Utforska kollektionen</a></button>
         </div>
 
     </menu>
@@ -137,7 +137,7 @@
     <div class="video-container">
 
         <video autoplay muted loop playsinline>
-            <source src="/assets/video/hero_video.mov" type="video/mp4">
+            <source src="/assets/video/hero_video.mp4" type="video/mp4">
         </video>
 
     </div>
