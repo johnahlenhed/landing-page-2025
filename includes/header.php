@@ -137,14 +137,16 @@
     <div class="video-container">
 
         <video autoplay muted loop playsinline>
-            <source src="/assets/video/hero_animation1.mkv" type="video/mp4">
+            <source src="/assets/video/hero_video.mov" type="video/mp4">
         </video>
 
     </div>
 
     <div class="menu-backdrop"></div>
 
-    <section class="hero-overlay"></section>
+    <section class="hero-overlay">
+        <img src="/assets/images/Kinforma_Logo_White_FULL.svg" alt="Kinforma logo white full">
+    </section>
 
     <script>
         // Header scroll effect

@@ -529,23 +529,28 @@ nav svg {
 
 .video-container video {
   position: absolute;
-  top: 49.99%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 70%;
 }
 
 .hero-overlay {
   position: relative;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
   z-index: 1;
+}
+
+.hero-overlay img {
+  position: absolute;
+  width: 30vh;
+  height: auto;
+  top: 52vh;
 }
 
 input[type="range"] {
@@ -1040,12 +1045,29 @@ footer {
   }
 
   .hero-overlay {
-    height: 95vh; /* Slightly shorter on desktop */
+    height: 80vh; /* Slightly shorter on desktop */
+  }
+
+  .hero-overlay img {
+  display: none;
   }
 
   .video-container {
-    height: 80vh;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    z-index: -1;
+    overflow: hidden;
   }
+
+  .video-container video {
+    height: 90vw;
+    position: absolute;
+    top: 50%;
+  }
+
   /* Desktop product section */
   .product-button > span::after {
     content: "produkt";
