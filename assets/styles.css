@@ -814,12 +814,11 @@ input[type="range"]:focus::-ms-fill-upper {
   color: #fff;
   font-size: 0.85em;
   text-align: center;
-  padding: 0.8em 0;
+  padding: 0.8em 1em 0.8em 1.5em;
   border: none;
   cursor: pointer;
   width: auto;
   border-radius: 2em;
-  padding: 0.8em 1em;
 }
 .cta-color-reverse {
   background-color: #fff;
