@@ -12,13 +12,13 @@ $products = [
     ],
     [
         'type' => 'Doftpinnar',
-        'name' => 'Rökan',
+        'name' => 'Aroma',
         'price' => '350',
         'img-path-active' => '../assets/images/doftpinnar_preview.png',
-        'img-alt' => 'Doftpinnar Rökan',
+        'img-alt' => 'Doftpinnar Aroma',
         'img-path_2' => '../assets/images/doftpinnar_preview_2.png',
         'img-alt_2' => '',
-        'figcaption' => 'Bilder av doftpinnar Rökan',
+        'figcaption' => 'Bilder av doftpinnar Aroma',
     ],
     [
         'type' => 'Vattenflaska',
