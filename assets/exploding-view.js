@@ -7,7 +7,6 @@ let model;
 let explodeProgress = 0;
 let allParts = [];
 
-
 let cameraStartPos = new THREE.Vector3();
 let cameraZoomIN = 0.65; // Adjust this to control zoom distance (1 = no zoom, 0.5 = half distance)
 
