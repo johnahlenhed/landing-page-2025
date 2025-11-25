@@ -231,7 +231,7 @@ p.product-season,
 /* Properties for 3d model */
 #model-container {
   width: 100%;
-  height: 20em;
+  height: 100vh;
   margin: 0;
 }
 .color-selectors {

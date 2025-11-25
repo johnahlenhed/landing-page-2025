@@ -31,7 +31,11 @@ const camera = new THREE.PerspectiveCamera(
   1,
   500
 );
-camera.position.set(6, 3, 10);
+camera.position.set(6, 3, 15);
+if(window.innerWidth < 540){
+camera.position.set(6, 3, 20);
+
+}
 
 // ---- Camera controls
 const controls = new OrbitControls(camera, renderer.domElement);
