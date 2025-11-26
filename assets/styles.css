@@ -1,6 +1,6 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-  --background-color: #ffffff;
+  --background-color: #fffffC;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
   --menu-bg-color: #ffffff;
@@ -50,6 +50,7 @@ body.no-scroll {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
+  line-height: 1em;
 }
 
 #products-section,
@@ -122,7 +123,7 @@ p.product-season,
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: 40% 50%;
+  /* object-position: 50% 50%; */
 }
 .product-info-flex,
 .model-flex,
@@ -230,7 +231,7 @@ p.product-season,
 /* Properties for 3d model */
 #model-container {
   width: 100%;
-  height: 20em;
+  height: 70vh;
   margin: 0;
 }
 .color-selectors {
@@ -659,7 +660,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .speaker-section {
   background-color: var(--background-color);
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -812,12 +813,11 @@ input[type="range"]:focus::-ms-fill-upper {
   color: #fff;
   font-size: 0.85em;
   text-align: center;
-  padding: 0.8em 0;
+  padding: 0.8em 1em 0.8em 1.5em;
   border: none;
   cursor: pointer;
   width: auto;
   border-radius: 2em;
-  padding: 0.8em 1em;
 }
 .cta-color-reverse {
   background-color: #fff;
@@ -887,7 +887,7 @@ footer {
 }
 .copyright {
   width: 100%;
-  height: 10em;
+  height: 15em;
   position: relative;
 }
 .button-disabled {
