@@ -49,8 +49,8 @@
     </div>
   
     <!-- CTA button -->
-    <button class="cta-button product-button button-disabled">
-      Utforska produkt
+    <button class="cta-button product-button">
+      Lägg i varukorg
       <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
     </button>
   </div>
