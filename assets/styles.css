@@ -1,6 +1,6 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-  --background-color: #fffffC;
+  --background-color: #FFFEF2;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
   --menu-bg-color: #ffffff;
@@ -60,7 +60,8 @@ body.no-scroll {
 #footer-section,
 .product-button,
 .cta-button,
-.cta-button {
+.mobile-menu,
+.menu-user-icon {
   font-family: "IBM Plex Sans";
 }
 .customizer-header p,
@@ -93,7 +94,8 @@ h3,
 h4,
 h5,
 h6,
-.cta-button {
+.cta-button,
+.menu-user-icon {
   text-transform: uppercase;
 }
 /* Products */
@@ -236,6 +238,7 @@ p.product-season,
 }
 .color-selectors {
   display: flex;
+  margin-bottom: 4em;
 }
 .color-toggle {
   background: none;
@@ -309,6 +312,7 @@ p.product-season,
   height: auto;
   width: 2.5rem;
   margin-top: 4px;
+  margin: 0;
 }
 
 .navbar-scrolled {
@@ -385,6 +389,7 @@ nav svg {
 }
 
 .menu-link-container ul {
+  font-size: 1.25rem;
   padding: 0;
   margin: 0;
   margin-left: 2rem;
@@ -393,8 +398,8 @@ nav svg {
 .menu-link-container li {
   color: var(--menu-text-color);
   list-style: none;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .menu-link-container li a {
@@ -427,7 +432,9 @@ nav svg {
   font-size: 1rem;
   color: var(--menu-text-color);
 }
-
+.menu-user-icon p b{
+  font-weight: 600;
+}
 .some-icons-menu {
   display: flex;
   gap: 1rem;
@@ -758,7 +765,8 @@ input[type="range"]:focus::-ms-fill-upper {
   color: #fff;
   line-height: 1.5em;
 }
-.fishnet-bg p {
+.fishnet-bg p,
+.menu-link-container ul {
   font-weight: 400;
 }
 .fishnet-bg {
@@ -1173,7 +1181,7 @@ footer {
 
   #speaker-3d {
     width: 100%;
-    height: 150vh;
+    height: 85vh;
     flex-grow: 1;
     pointer-events: none;
     overflow: hidden;

@@ -137,7 +137,7 @@
     <div class="video-container">
 
         <video autoplay muted loop playsinline>
-            <source src="/assets/video/hero_video.mp4" type="video/mp4">
+            <source src="/assets/video/hero_final3_2.mp4" type="video/mp4">
         </video>
 
     </div>
