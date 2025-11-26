@@ -3,59 +3,47 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { HDRLoader } from "three/addons/loaders/HDRLoader.js";
 
-let model;
-let explodeProgress = 0;
-let allParts = [];
-
-let cameraStartPos = new THREE.Vector3();
-let cameraZoomIN = 0.65; // Adjust this to control zoom distance (1 = no zoom, 0.5 = half distance)
-
-// Rotation, tilt and pan settings
-let cameraRotationAmount = Math.PI * 0.5; // Full rotation (2π radians)
-let cameraPanAmount = new THREE.Vector3(0, -0.1, 0); // Pan upward
-let cameraTiltAmount = new THREE.Vector3(0, -5, 0); // Tilt amount (adjust as needed)
-
-// ---- Container for the 3d model
+let model, explodeProgress = 0, allParts = [];
 const container = document.getElementById("speaker-3d");
+const cameraStartPos = new THREE.Vector3();
 
-// Renderer
-const renderer = new THREE.WebGLRenderer({
-  powerPreference: "high-performance",
-  antialias: true,
-});
+// Camera settings
+const CAM = {
+  zoomIN: 0.65,
+  rotation: Math.PI * 0.5,
+  pan: new THREE.Vector3(0, -0.1, 0),
+  tilt: new THREE.Vector3(0, -5, 0)
+};
+
+// Colors
+const COLORS = { black: 0x3c3c3c, metal: 0x9d9d9d, glass: 0xffffff, inside: 0xbcbcbc };
+const partColors = [COLORS.inside, COLORS.inside, COLORS.inside, COLORS.metal, COLORS.black, COLORS.metal, COLORS.metal, COLORS.black, COLORS.metal, COLORS.metal, COLORS.glass, COLORS.inside, COLORS.metal, COLORS.metal, COLORS.metal, COLORS.black, COLORS.metal, COLORS.black, COLORS.metal, COLORS.metal, COLORS.inside, COLORS.black, COLORS.black];
+
+// Part directions & distances combined
+const partData = [
+  [1,0,0, 0.6], [1,0,0, 0.8], [1,0,0, 0.4], [1,0,0, 0.3], [0,-1,0, 0.6], [0,-1,0, 0.5],
+  [0,-1,0, 0.3], [1,0,0, 0.2], [0,0,0, 0], [0,0,0, 0], [0,0,0, 0], [0,0,0, 0], [0,0,1, 0.5],
+  [0,-1,0, 0.2], [0,-1,0, 1], [0,0,0, 0], [0,-1,0, 1], [0,-1,0, 0.3], [-1,0,0, 0.3],
+  [0,-1,0, 0.6], [1,0,0, 0.3], [1,0,0, 0.75], [0,-1,0, 1]
+];
+
+// Renderer setup
+const renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance", antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setClearColor(0xeeeeee);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
-
 container.appendChild(renderer.domElement);
 
-// Handle window resize
-function onWindowResize() {
-  const width = container.clientWidth;
-  const height = container.clientHeight;
-  
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
-}
-
-window.addEventListener('resize', onWindowResize);
-
-// Scene + Camera
+// Scene & Camera
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  18,
-  container.clientWidth / container.clientHeight,
-  1,
-  500
-);
+const camera = new THREE.PerspectiveCamera(18, container.clientWidth / container.clientHeight, 1, 500);
 camera.position.set(-35, 35, 106);
 camera.rotation.set(-0.2, -0.6, 0);
 
-// ---- Camera controls
+// Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
@@ -63,260 +51,113 @@ controls.minDistance = 3;
 controls.maxDistance = 200;
 controls.target.set(0, 1, 0);
 
-// ---- Lights
+// Lighting
 scene.add(new THREE.AmbientLight(0xffffff, 0.4));
-const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
-keyLight.position.set(5, 8, 5);
-scene.add(keyLight);
-const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
-fillLight.position.set(-5, 4, 3);
-scene.add(fillLight);
-const rimLight = new THREE.DirectionalLight(0xffffff, 0.9);
-rimLight.position.set(-3, 5, -5);
-scene.add(rimLight);
+scene.add(new THREE.DirectionalLight(0xffffff, 0.9), new THREE.DirectionalLight(0xffffff, 0.5), new THREE.DirectionalLight(0xffffff, 0.9));
+const lights = scene.children.filter(c => c.isLight).slice(-3);
+lights[0].position.set(5, 8, 5);
+lights[1].position.set(-5, 4, 3);
+lights[2].position.set(-3, 5, -5);
 
-// Load HDR environment map
-const hdrLoader = new HDRLoader();
-hdrLoader.load("/assets/3d-model/speaker/studio_small_03_4k.hdr", (hdr) => {
+// HDR Environment
+new HDRLoader().load("/assets/3d-model/speaker/studio_small_03_4k.hdr", (hdr) => {
   hdr.mapping = THREE.EquirectangularReflectionMapping;
   scene.environment = hdr;
-  scene.background = null;
 });
 
-// DIRECTIONS PER PART
-const partDirections = [
-  new THREE.Vector3(1, 0, 0), // 1
-  new THREE.Vector3(1, 0, 0), // 2
-  new THREE.Vector3(1, 0, 0), // 3
-  new THREE.Vector3(1, 0, 0), // 4
-  new THREE.Vector3(0, -1, 0), // 5
-  new THREE.Vector3(0, -1, 0), // 6
-  new THREE.Vector3(0, -1, 0), // 7
-  new THREE.Vector3(1, 0, 0), // 8
-  new THREE.Vector3(0, 0, 0), // 9
-  new THREE.Vector3(0, 0, 0), // 10
-  new THREE.Vector3(0, 0, 0), // 11
-  new THREE.Vector3(0, 0, 0), // 12
-  new THREE.Vector3(0, 0, 1), // 13
-  new THREE.Vector3(0, -1, 0), // 14
-  new THREE.Vector3(0, -1, 0), // 15
-  new THREE.Vector3(0, 0, 0), // 16
-  new THREE.Vector3(0, -1, 0), // 17
-  new THREE.Vector3(0, -1, 0), // 18
-  new THREE.Vector3(-1, 0, 0), // 19
-  new THREE.Vector3(0, -1, 0), // 20
-  new THREE.Vector3(1, 0, 0), // 21
-  new THREE.Vector3(1, 0, 0), // 22
-  new THREE.Vector3(0, -1, 0), // 23
-];
+// Load model
+new GLTFLoader().load("/assets/3d-model/speaker/speaker.glb", (gltf) => {
+  model = gltf.scene;
+  model.position.set(0, 0, 0);
+  model.scale.set(1, 1, 1);
+  model.rotation.set(0, -2.2, 0);
+  scene.add(model);
 
-// DISTANCES PER PART
-const partDistances = [
-  0.6, 0.8, 0.4, 0.3, 0.6, 0.5, 0.3, 0.2, 0, 0, 0, 0, 0.5, 0.2, 1, 0, 1, 0.3,
-  0.3, 0.6, 0.3, 0.75, 1,
-];
+  // Get all parts
+  allParts = [];
+  model.traverse(node => { if (node.isMesh) allParts.push(node); });
 
-// Helper function to get all nested parts
-function getAllParts(object, parts = []) {
-  object.children.forEach((child) => {
-    parts.push(child);
-    getAllParts(child, parts);
-  });
-  return parts;
-}
+  // Camera auto-centering
+  const box = new THREE.Box3().setFromObject(model);
+  const center = box.getCenter(new THREE.Vector3());
+  controls.target.copy(center);
+  
+  const size = box.getSize(new THREE.Vector3());
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const fov = THREE.MathUtils.degToRad(camera.fov);
+  const cameraZ = maxDim / Math.tan(fov / 2);
+  
+  camera.position.set(center.x + cameraZ * 0.1, center.y + cameraZ * 0.1, center.z + cameraZ * 1.5);
+  camera.lookAt(center);
+  controls.update();
+  cameraStartPos.copy(camera.position);
 
-// ---- Load GLTF/GLB
-const gltfLoader = new GLTFLoader();
-gltfLoader.load(
-  "/assets/3d-model/speaker/speaker.glb",
-  (gltf) => {
-    console.log("GLTF loaded successfully");
-
-    model = gltf.scene;
-    model.position.set(0, 0, 0);
-    model.scale.set(1, 1, 1);
-    model.rotation.set(0, -2.2, 0);
-
-    scene.add(model);
-
-    // Auto-center camera
-    const box = new THREE.Box3().setFromObject(model);
-    const center = new THREE.Vector3();
-    box.getCenter(center);
-
-    controls.target.copy(center);
-
-    const size = new THREE.Vector3();
-    box.getSize(size);
-    const maxDim = Math.max(size.x, size.y, size.z);
-    const fov = THREE.MathUtils.degToRad(camera.fov);
-    const cameraZ = maxDim / Math.tan(fov / 2);
-
-    camera.position.set(
-      center.x + cameraZ * 0.1,
-      center.y + cameraZ * 0.1,
-      center.z + cameraZ * 1.5
-    );
-
-    camera.lookAt(center);
-    controls.update();
-
-    camera.lookAt(center);
-    controls.update();
-
-    cameraStartPos.copy(camera.position);
-
-    // Get all parts
-    allParts = getAllParts(model);
-
-    // Color definitions
-    const blackPlastic = 0x3c3c3c;
-    const metal = 0x9d9d9d;
-    const glass = 0xffffff;
-    const speakerInside = 0xbcbcbc;
-
-    const partColors = [
-      speakerInside,
-      speakerInside,
-      speakerInside,
-      metal,
-      blackPlastic,
-      metal,
-      metal,
-      blackPlastic,
-      metal,
-      metal,
-      glass,
-      speakerInside,
-      metal,
-      metal,
-      metal,
-      blackPlastic,
-      metal,
-      blackPlastic,
-      metal,
-      metal,
-      speakerInside,
-      blackPlastic,
-      blackPlastic,
-    ];
-
-    // Apply colors
-    allParts.forEach((part, i) => {
-      if (part.isMesh && part.material) {
-        part.material = part.material.clone();
-        part.material.color.set(partColors[i % partColors.length]);
-        part.material.needsUpdate = true;
+  // Apply colors and setup parts
+  allParts.forEach((part, i) => {
+    if (part.material) {
+      part.material = part.material.clone();
+      part.material.color.set(partColors[i % partColors.length]);
+      if (part.material.map) part.material.map.colorSpace = THREE.SRGBColorSpace;
+      if (part.material.color) part.material.color.multiplyScalar(1.5);
+      if (part.material.isMeshPhysicalMaterial) {
+        part.material.metalness = Math.max(part.material.metalness * 0.8, 0);
+        part.material.roughness = Math.min(part.material.roughness, 0.8);
+        part.material.envMapIntensity = 1.2;
       }
-    });
+    }
 
-    // Fix material and texture handling
-    model.traverse((node) => {
-      if (node.isMesh && node.material) {
-        const materials = Array.isArray(node.material)
-          ? node.material
-          : [node.material];
-        materials.forEach((mat) => {
-          if (!mat) return;
-
-          if (mat.map) {
-            mat.map.colorSpace = THREE.SRGBColorSpace;
-          }
-
-          if (mat.color) {
-            mat.color.multiplyScalar(1.5);
-          }
-
-          if (mat.isMeshPhysicalMaterial) {
-            mat.metalness = Math.max(mat.metalness * 0.8, 0);
-            mat.roughness = Math.min(mat.roughness, 0.8);
-            mat.envMapIntensity = 1.2;
-          }
-        });
-      }
-    });
-
-    // Store original positions
-    allParts.forEach((part, i) => {
-      part.userData.originalPos = part.position.clone();
-      const customDir = partDirections[i] || new THREE.Vector3(0, 0, 0);
-      part.userData.direction = customDir.clone().normalize();
-      part.userData.distance = partDistances[i] || 0;
-    });
-
-    
-  },
-  (progress) => {
-    console.log(
-      "Loading progress:",
-      ((progress.loaded / progress.total) * 100).toFixed(2) + "%"
-    );
-  },
-  (error) => {
-    console.error("GLTF load error:", error);
-  }
-);
-
-// ---- Range slider control
-const explodeSlider = document.getElementById("explode-slider");
-if (explodeSlider) {
-  explodeSlider.addEventListener("input", (e) => {
-    explodeProgress = parseFloat(e.target.value) / 100;
+    // Setup part data
+    const [dx, dy, dz, dist] = partData[i] || [0, 0, 0, 0];
+    part.userData.originalPos = part.position.clone();
+    part.userData.direction = new THREE.Vector3(dx, dy, dz).normalize();
+    part.userData.distance = dist;
   });
-} else {
-  console.warn("#explode-slider not found in DOM");
-}
+});
 
-// ---- Animation loop
+// Slider control
+const slider = document.getElementById("explode-slider");
+if (slider) slider.addEventListener("input", e => explodeProgress = e.target.value / 100);
+
+// Animation loop
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
 
   if (model && allParts.length > 0) {
-    // Update parts as before
-    allParts.forEach((part) => {
+    allParts.forEach(part => {
       if (part.userData.originalPos) {
-        const original = part.userData.originalPos;
-        const distance = part.userData.distance || 5;
-        const target = original
-          .clone()
-          .add(part.userData.direction.clone().multiplyScalar(distance));
-        part.position.lerpVectors(original, target, explodeProgress);
+        const target = part.userData.originalPos.clone()
+          .add(part.userData.direction.clone().multiplyScalar(part.userData.distance));
+        part.position.lerpVectors(part.userData.originalPos, target, explodeProgress);
       }
     });
 
-    // Calculate rotated camera position
-    const angle = cameraRotationAmount * explodeProgress;
-    const cosAngle = Math.cos(angle);
-    const sinAngle = Math.sin(angle);
+    // Camera animation
+    const angle = CAM.rotation * explodeProgress;
+    const cos = Math.cos(angle), sin = Math.sin(angle);
     
-    // Rotate the starting position around the Y axis
-    const rotatedPos = new THREE.Vector3(
-      cameraStartPos.x * cosAngle - cameraStartPos.z * sinAngle,
+    const rotated = new THREE.Vector3(
+      cameraStartPos.x * cos - cameraStartPos.z * sin,
       cameraStartPos.y,
-      cameraStartPos.x * sinAngle + cameraStartPos.z * cosAngle
+      cameraStartPos.x * sin + cameraStartPos.z * cos
     );
 
-    // Apply zoom
-    const zoomFactor = THREE.MathUtils.lerp(1, cameraZoomIN, explodeProgress);
-    rotatedPos.multiplyScalar(zoomFactor);
+    rotated.multiplyScalar(THREE.MathUtils.lerp(1, CAM.zoomIN, explodeProgress));
+    rotated.add(CAM.pan.clone().multiplyScalar(explodeProgress));
+    rotated.add(CAM.tilt.clone().multiplyScalar(explodeProgress));
 
-    // Apply pan
-    const panCurrent = cameraPanAmount.clone().multiplyScalar(explodeProgress);
-    rotatedPos.add(panCurrent);
-
-    camera.position.copy(rotatedPos);
-
-    // Apply tilt
-    const tiltCurrent = cameraTiltAmount.clone().multiplyScalar(explodeProgress);
-    camera.position.add(tiltCurrent);
-    
-    // Update look-at target to follow the pan
-    const targetPos = controls.target.clone().add(panCurrent);
-    camera.lookAt(targetPos);
+    camera.position.copy(rotated);
+    camera.lookAt(controls.target.clone().add(CAM.pan.clone().multiplyScalar(explodeProgress)));
   }
 
   renderer.render(scene, camera);
 }
 
 animate();
+
+// Resize handler
+window.addEventListener('resize', () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
