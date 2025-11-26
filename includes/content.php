@@ -26,7 +26,7 @@ $products = [
         'price' => '250',
         'img-path-active' => '../assets/images/bottle_final.png',
         'img-alt' => 'Vattenflaska Sund',
-        'img-path_2' => '../assets/images/flaska_preview_2.png',
+        'img-path_2' => '../assets/images/kinforma_flaska_enviroment2.png',
         'img-alt_2' => '',
         'figcaption' => 'Bilder av vattenflaskan Sund',
     ],
