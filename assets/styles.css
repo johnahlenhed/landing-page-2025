@@ -1,6 +1,6 @@
 :root {
   --safe-bottom: env(safe-area-inset-bottom);
-  --background-color: #ffffff;
+  --background-color: #FFFEF2;
   --primary-color: #000000;
   --secondary-color: #c3b89a;
   --menu-bg-color: #ffffff;
@@ -50,6 +50,7 @@ body.no-scroll {
   font-weight: 600;
   font-size: 1.7em;
   letter-spacing: -0.01em;
+  line-height: 1em;
 }
 
 #products-section,
@@ -59,7 +60,8 @@ body.no-scroll {
 #footer-section,
 .product-button,
 .cta-button,
-.cta-button {
+.mobile-menu,
+.menu-user-icon {
   font-family: "IBM Plex Sans";
 }
 .customizer-header p,
@@ -92,7 +94,8 @@ h3,
 h4,
 h5,
 h6,
-.cta-button {
+.cta-button,
+.menu-user-icon {
   text-transform: uppercase;
 }
 /* Products */
@@ -122,7 +125,7 @@ p.product-season,
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: 40% 50%;
+  /* object-position: 50% 50%; */
 }
 .product-info-flex,
 .model-flex,
@@ -230,11 +233,12 @@ p.product-season,
 /* Properties for 3d model */
 #model-container {
   width: 100%;
-  height: 20em;
+  height: 70vh;
   margin: 0;
 }
 .color-selectors {
   display: flex;
+  margin-bottom: 4em;
 }
 .color-toggle {
   background: none;
@@ -308,6 +312,7 @@ p.product-season,
   height: auto;
   width: 2.5rem;
   margin-top: 4px;
+  margin: 0;
 }
 
 .navbar-scrolled {
@@ -384,6 +389,7 @@ nav svg {
 }
 
 .menu-link-container ul {
+  font-size: 1.25rem;
   padding: 0;
   margin: 0;
   margin-left: 2rem;
@@ -426,7 +432,9 @@ nav svg {
   font-size: 1rem;
   color: var(--menu-text-color);
 }
-
+.menu-user-icon p b{
+  font-weight: 600;
+}
 .some-icons-menu {
   display: flex;
   gap: 1rem;
@@ -448,7 +456,7 @@ nav svg {
 
 .mobile-menu-footer img {
   position: absolute;
-  bottom: -2px;
+  bottom: -80px;
   left: 0;
   overflow-y: hidden;
   width: 100%;
@@ -486,7 +494,7 @@ nav svg {
   align-items: center;
   width: 100%;
   height: auto;
-  margin-left: 45px;
+  margin-left: 2.7rem;
   padding-top: 5px;
 }
 
@@ -527,7 +535,6 @@ nav svg {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  margin-top: 1rem;
   border-radius: 100px;
   text-align: center;
 }
@@ -570,7 +577,7 @@ nav svg {
   position: absolute;
   width: 30vh;
   height: auto;
-  top: 52vh;
+  top: 49vh;
 }
 
 input[type="range"] {
@@ -660,15 +667,15 @@ input[type="range"]:focus::-ms-fill-upper {
 .speaker-section {
   background-color: var(--background-color);
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   touch-action: pan-y;
+  margin: 0;
 }
 
 #speaker-3d {
-  display: block;
   width: 100%;
   height: 40svh;
   flex-grow: 1;
@@ -758,7 +765,8 @@ input[type="range"]:focus::-ms-fill-upper {
   color: #fff;
   line-height: 1.5em;
 }
-.fishnet-bg p {
+.fishnet-bg p,
+.menu-link-container ul {
   font-weight: 400;
 }
 .fishnet-bg {
@@ -813,12 +821,11 @@ input[type="range"]:focus::-ms-fill-upper {
   color: #fff;
   font-size: 0.85em;
   text-align: center;
-  padding: 0.8em 0;
+  padding: 0.8em 1em 0.8em 1.5em;
   border: none;
   cursor: pointer;
   width: auto;
   border-radius: 2em;
-  padding: 0.8em 1em;
 }
 .cta-color-reverse {
   background-color: #fff;
@@ -888,7 +895,7 @@ footer {
 }
 .copyright {
   width: 100%;
-  height: 10em;
+  height: 15em;
   position: relative;
 }
 .button-disabled {

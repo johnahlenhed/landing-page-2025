@@ -12,7 +12,7 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
 renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.setClearColor(0xd8d8d8);
+renderer.setClearColor(0xeeeeee);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -31,7 +31,11 @@ const camera = new THREE.PerspectiveCamera(
   1,
   500
 );
-camera.position.set(6, 3, 10);
+camera.position.set(6, 3, 15);
+if(window.innerWidth < 540){
+camera.position.set(6, 3, 20);
+
+}
 
 // ---- Camera controls
 const controls = new OrbitControls(camera, renderer.domElement);

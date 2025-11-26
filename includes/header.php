@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kinforma</title>
+    <link rel="icon" href="assets/images/Kinforma_Logo_White_K.svg" type="image/svg+xml">
     <!-- Google fonts links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,7 +137,7 @@
     <div class="video-container">
 
         <video autoplay muted loop playsinline>
-            <source src="/assets/video/hero_video.mp4" type="video/mp4">
+            <source src="/assets/video/hero_final3_2.mp4" type="video/mp4">
         </video>
 
     </div>

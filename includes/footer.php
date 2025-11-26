@@ -31,7 +31,7 @@
         </ul>
     </div>
     <div class="copyright">
-        <img class="footer-bg" src="/assets/images/footer-bg-grass.svg" alt="a field of grass">
+        <img class="footer-bg" src="/assets/images/footer_final3.png" alt="a field of grass">
         <img class="copyright-logo" src="/assets/images/kinforma_logo_copymark.svg" alt="kinforma copyright logo">
     </div>
 </footer>

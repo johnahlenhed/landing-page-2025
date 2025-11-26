@@ -11,7 +11,7 @@
     </figcaption>
   </figure>
 
-  <div class="model-flex">
+  <div class="model-flex product-header">
 
     <!-- Color swatches body-->
     <div class="color-selectors">
@@ -49,10 +49,12 @@
     </div>
   
     <!-- CTA button -->
-    <button class="cta-button product-button button-disabled">
-      Utforska produkt
-      <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
-    </button>
+     <div>
+       <button class="cta-button product-button">
+         Lägg i varukorg
+         <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
+       </button>
+     </div>
   </div>
 </section>
 
