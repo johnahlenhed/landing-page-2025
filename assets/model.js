@@ -12,7 +12,7 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
 renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.setClearColor(0xd8d8d8);
+renderer.setClearColor(0xeeeeee);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
