@@ -448,7 +448,7 @@ nav svg {
 
 .mobile-menu-footer img {
   position: absolute;
-  bottom: -2px;
+  bottom: -80px;
   left: 0;
   overflow-y: hidden;
   width: 100%;
@@ -527,7 +527,6 @@ nav svg {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  margin-top: 1rem;
   border-radius: 100px;
   text-align: center;
 }
@@ -570,7 +569,7 @@ nav svg {
   position: absolute;
   width: 30vh;
   height: auto;
-  top: 52vh;
+  top: 49vh;
 }
 
 input[type="range"] {
