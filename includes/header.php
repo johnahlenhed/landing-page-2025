@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <base href="kinforma">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kinforma</title>
@@ -12,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <!-- Google icon link -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
-    <link rel="stylesheet" href="/assets/styles.css">
-    <script type="module" src="/assets/model.js"></script>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script type="module" src="./assets/model.js"></script>
     <script type="importmap">
         {
             "imports": {
@@ -22,7 +23,7 @@
             }
         }
     </script>
-    <script type="module" src="/assets/exploding-view.js"></script>
+    <script type="module" src="./assets/exploding-view.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
             </svg>
         </div>
 
-        <img src="/assets/images/Kinforma_Logo_Green_K.svg" alt="kinforma logo">
+        <img src="./assets/images/Kinforma_Logo_Green_K.svg" alt="kinforma logo">
 
         <div class="cart-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -53,7 +54,7 @@
                 </svg>
             </div>
 
-            <img src="/assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
+            <img src="./assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
 
             <div class="cart-icon-desktop">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -75,9 +76,9 @@
                 </svg>
             </div>
 
-            <img src="/assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
+            <img src="./assets/images/Kinforma_Logo_Green_FULL.svg" alt="Kinforma logo">
 
-            <img src="/assets/images/sweden-flag.svg" alt="swedish flag icon">
+            <img src="./assets/images/sweden-flag.svg" alt="swedish flag icon">
 
         </div>
 
@@ -92,14 +93,14 @@
         </div>
 
         <div class="some-icons-menu">
-            <img src="/assets/images/some-icons/instagram.svg">
-            <img src="/assets/images/some-icons/facebook.svg">
-            <img src="/assets/images/some-icons/tiktok.svg">
-            <img src="/assets/images/some-icons/linkedin.svg">
+            <img src="./assets/images/some-icons/instagram.svg">
+            <img src="./assets/images/some-icons/facebook.svg">
+            <img src="./assets/images/some-icons/tiktok.svg">
+            <img src="./assets/images/some-icons/linkedin.svg">
         </div>
 
         <div class="mobile-menu-footer">
-            <img src="/assets/images/footer_final3.png" alt="Kulle image">
+            <img src="./assets/images/footer_final3.png" alt="Kulle image">
         </div>
 
         <div class="menu-user-icon">
@@ -116,7 +117,7 @@
         <div class="cart-menu-top">
 
             <div class="cart-logo">
-                <img src="/assets/images/Kinforma_Logo_Green_K.svg">
+                <img src="./assets/images/Kinforma_Logo_Green_K.svg">
             </div>
             <div class="cart-close-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -137,7 +138,7 @@
     <div class="video-container">
 
         <video autoplay muted loop playsinline>
-            <source src="/assets/video/hero_final3_2.mp4" type="video/mp4">
+            <source src="./assets/video/hero_final3_2.mp4" type="video/mp4">
         </video>
 
     </div>
@@ -145,7 +146,7 @@
     <div class="menu-backdrop"></div>
 
     <section class="hero-overlay">
-        <img src="/assets/images/Kinforma_Logo_White_FULL.svg" alt="Kinforma logo white full">
+        <img src="./assets/images/Kinforma_Logo_White_FULL.svg" alt="Kinforma logo white full">
     </section>
 
     <script>
@@ -183,6 +184,6 @@
         }
     </script>
 
-    <script src="/assets/mobile-menu.js"></script>
-    <script src="/assets/cart-menu.js"></script>
-    <script src="/assets/desktop-menu.js"></script>
+    <script src="./assets/mobile-menu.js"></script>
+    <script src="./assets/cart-menu.js"></script>
+    <script src="./assets/desktop-menu.js"></script>

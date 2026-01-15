@@ -11,7 +11,7 @@ require("content.php");
         <div>
             <button class="cta-button product-button">
                 Utforska kollektion
-                <img src="/assets/images/arrow_forward.svg" alt="arrow icon">
+                <img src="./assets/images/arrow_forward.svg" alt="arrow icon">
             </button>
         </div>
     </header>
@@ -63,7 +63,7 @@ require("content.php");
                         <span>
                             Utforska
                         </span>
-                        <img src="/assets/images/arrow_forward.svg" alt="arrow forward icon" />
+                        <img src="./assets/images/arrow_forward.svg" alt="arrow forward icon" />
                     </button>
                 </div>
             </div>

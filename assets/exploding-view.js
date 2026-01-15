@@ -36,13 +36,13 @@ container.appendChild(renderer.domElement);
 function onWindowResize() {
   const width = container.clientWidth;
   const height = container.clientHeight;
-  
+
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
 }
 
-window.addEventListener('resize', onWindowResize);
+window.addEventListener("resize", onWindowResize);
 
 // Scene + Camera
 const scene = new THREE.Scene();
@@ -77,7 +77,7 @@ scene.add(rimLight);
 
 // Load HDR environment map
 const hdrLoader = new HDRLoader();
-hdrLoader.load("/assets/3d-model/speaker/studio_small_03_4k.hdr", (hdr) => {
+hdrLoader.load("./assets/3d-model/speaker/studio_small_03_4k.hdr", (hdr) => {
   hdr.mapping = THREE.EquirectangularReflectionMapping;
   scene.environment = hdr;
   scene.background = null;
@@ -128,7 +128,7 @@ function getAllParts(object, parts = []) {
 // ---- Load GLTF/GLB
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-  "/assets/3d-model/speaker/speaker.glb",
+  "./assets/3d-model/speaker/speaker.glb",
   (gltf) => {
     console.log("GLTF loaded successfully");
 
@@ -243,14 +243,6 @@ gltfLoader.load(
       part.userData.direction = customDir.clone().normalize();
       part.userData.distance = partDistances[i] || 0;
     });
-
-    
-  },
-  (progress) => {
-    console.log(
-      "Loading progress:",
-      ((progress.loaded / progress.total) * 100).toFixed(2) + "%"
-    );
   },
   (error) => {
     console.error("GLTF load error:", error);
@@ -289,7 +281,7 @@ function animate() {
     const angle = cameraRotationAmount * explodeProgress;
     const cosAngle = Math.cos(angle);
     const sinAngle = Math.sin(angle);
-    
+
     // Rotate the starting position around the Y axis
     const rotatedPos = new THREE.Vector3(
       cameraStartPos.x * cosAngle - cameraStartPos.z * sinAngle,
@@ -308,9 +300,11 @@ function animate() {
     camera.position.copy(rotatedPos);
 
     // Apply tilt
-    const tiltCurrent = cameraTiltAmount.clone().multiplyScalar(explodeProgress);
+    const tiltCurrent = cameraTiltAmount
+      .clone()
+      .multiplyScalar(explodeProgress);
     camera.position.add(tiltCurrent);
-    
+
     // Update look-at target to follow the pan
     const targetPos = controls.target.clone().add(panCurrent);
     camera.lookAt(targetPos);
