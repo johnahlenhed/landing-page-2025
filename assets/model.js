@@ -29,17 +29,16 @@ const camera = new THREE.PerspectiveCamera(
   25,
   container.clientWidth / container.clientHeight,
   1,
-  500
+  500,
 );
 camera.position.set(6, 3, 15);
-if(window.innerWidth < 540){
-camera.position.set(6, 3, 20);
-
+if (window.innerWidth < 540) {
+  camera.position.set(6, 3, 20);
 }
 
 // ---- Camera controls
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableZoom = false
+controls.enableZoom = false;
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.target.set(0, 1, 0);
@@ -105,12 +104,11 @@ function changeModelTextures(color, part, meshList) {
           color,
           part,
           meshName,
-        }
-      }
-    }
+        },
+      },
+    };
     setChairMaterials(scene, globalTextureParams);
   });
-
 }
 
 // ---- Funtionality for buttons
@@ -127,18 +125,18 @@ document.querySelectorAll(".swatch").forEach((btn) => {
   });
 });
 
-function setChairMaterials(
-  object3d,
-  textureParams = globalTextureParams,
-) {
+function setChairMaterials(object3d, textureParams = globalTextureParams) {
   object3d.traverse((child) => {
     if (!child.isMesh) return;
 
-    if (!Array.isArray(child.material) && child.name === "kudde" || child.material.name === "kudde") {
+    if (
+      (!Array.isArray(child.material) && child.name === "kudde") ||
+      child.material.name === "kudde"
+    ) {
       child.material = loadPartMaterial(
         textureParams.kudde.color,
         textureParams.kudde.part,
-        textureParams.kudde.meshName
+        textureParams.kudde.meshName,
       );
       child.material.needsUpdate = true;
     } else {
@@ -146,7 +144,7 @@ function setChairMaterials(
         child.material[index] = loadPartMaterial(
           textureParams[material.name].color,
           textureParams[material.name].part,
-          textureParams[material.name].meshName
+          textureParams[material.name].meshName,
         );
         child.material[index].needsUpdate = true;
       });
